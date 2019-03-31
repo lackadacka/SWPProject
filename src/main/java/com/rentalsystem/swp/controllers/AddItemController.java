@@ -2,7 +2,7 @@ package com.rentalsystem.swp.controllers;
 
 import com.rentalsystem.swp.dao.ItemProfile;
 import com.rentalsystem.swp.dao.ItemProfileData;
-import com.rentalsystem.swp.dao.ItemRepository;
+import com.rentalsystem.swp.Repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
