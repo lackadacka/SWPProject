@@ -1,5 +1,8 @@
-package com.rentalsystem.swp.dao;
+package com.rentalsystem.swp.controllers;
 
+import com.rentalsystem.swp.dao.UserProfile;
+import com.rentalsystem.swp.dao.UserProfileData;
+import com.rentalsystem.swp.dao.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -15,7 +18,7 @@ public class SignUpController {
         this.userRepository = userRepository;
     }
 
-    @PostMapping("/signup") // Map ONLY GET Requests
+    @PostMapping("/signup")
     public void addNewUser(@RequestBody UserProfileData user) {
         if (userRepository.existsByEmail(user.getEmail())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email address is already in use.");
@@ -31,7 +34,7 @@ public class SignUpController {
         userRepository.save(newUser);
     }
 
-    @GetMapping(path="/all")
+    @GetMapping(path="/allusers")
     public @ResponseBody Iterable<UserProfile> getAllUsers() {
         // This returns a JSON or XML with the users
         return userRepository.findAll();
