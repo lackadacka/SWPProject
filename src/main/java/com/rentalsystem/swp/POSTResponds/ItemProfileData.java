@@ -1,4 +1,4 @@
-package com.rentalsystem.swp.dao;
+package com.rentalsystem.swp.POSTResponds;
 
 import lombok.Data;
 
@@ -7,4 +7,5 @@ public class ItemProfileData {
     private long id;
     private String name;
     private String description;
+    private String timeSlots;
 }

@@ -17,6 +17,7 @@ public class ItemProfile {
     private long id;
     private String name;
     private String description;
+    private String timeSlots;
 
 
 }

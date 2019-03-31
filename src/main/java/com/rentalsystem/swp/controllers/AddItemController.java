@@ -1,7 +1,7 @@
 package com.rentalsystem.swp.controllers;
 
 import com.rentalsystem.swp.dao.ItemProfile;
-import com.rentalsystem.swp.dao.ItemProfileData;
+import com.rentalsystem.swp.POSTResponds.ItemProfileData;
 import com.rentalsystem.swp.Repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +20,7 @@ public class AddItemController {
         ItemProfile newItem = new ItemProfile();
         newItem.setName(item.getName());
         newItem.setDescription(item.getDescription());
+        newItem.setTimeSlots(item.getTimeSlots());
 
         itemRepository.save(newItem);
     }
