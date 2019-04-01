@@ -1,6 +1,6 @@
 <#import "headerMenu.ftl" as menu>
 
-<@menu.menu profile="Sign In" sign="Sign Up" profile_ref="/login" sign_ref="/signup" title="Sign In">
+<@menu.menu signed_in=false title="Sign In">
     <div class="container">
         <h1>LOG IN</h1>
         <form action="/login" method="post">
