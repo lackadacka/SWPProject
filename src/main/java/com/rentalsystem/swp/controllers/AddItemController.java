@@ -4,15 +4,21 @@ import com.rentalsystem.swp.dao.ItemProfile;
 import com.rentalsystem.swp.POSTResponds.ItemProfileData;
 import com.rentalsystem.swp.Repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 public class AddItemController {
     @Autowired
     private final ItemRepository itemRepository;
 
     public AddItemController(ItemRepository itemRepository) {
         this.itemRepository = itemRepository;
+    }
+
+    @GetMapping("/menu")
+    public String menu(){
+        return "headerMenu";
     }
 
     @PostMapping("/additem")
