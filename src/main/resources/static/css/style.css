@@ -90,8 +90,55 @@
         right: 0;
     }
 }
-
-
+.profile{
+    width: 600px;
+    height: 300px;
+    background: #34495e;
+    position: absolute;
+    border-radius: 20px;
+    margin-top: 70px;
+    margin-bottom: 30px;
+    padding: 0 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    text-align: left;
+    z-index: 1;
+}
+.profile h1{
+    font-family: "Montserrat", sans-serif;
+    font-size: 70px;
+    text-align: center;
+    color: lightcyan;
+    max-width: 90%;
+    margin-top: 50px;
+}
+.profile h2{
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    text-align: left;
+    color: lightcyan;
+    margin: 15px auto;
+}
+.edit_btn{
+    width: 130px;
+    height: 40px;
+    border-radius: 10px;
+    margin: 50px auto;
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-size: 20px;
+    border: none;
+    background: #3498db;
+    color: black;
+    cursor: pointer;
+    transition: 0.7s;
+}
+.edit_btn:hover{
+    transform: scale(0.9);
+}
 .container{
     width: 360px;
     height: 500px;
