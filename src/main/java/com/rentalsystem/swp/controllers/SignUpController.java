@@ -1,18 +1,16 @@
 package com.rentalsystem.swp.controllers;
 
-import com.rentalsystem.swp.dao.UserProfile;
+import com.rentalsystem.swp.models.UserProfile;
 import com.rentalsystem.swp.POSTResponds.UserProfileData;
 import com.rentalsystem.swp.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 
-@Controller
+@RestController
 public class SignUpController {
 
     private final UserRepository userRepository;
@@ -24,17 +22,8 @@ public class SignUpController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @RequestMapping(value = "/signup", method = RequestMethod.GET)
-    public String showSignup(Model model){
-        model.addAttribute("userProfileData", new UserProfileData());
-        return "signup";
-    }
-    @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String signUp(@ModelAttribute("userProfileData") UserProfileData userProfileData, Model model){
-
-        model.addAttribute("UserProfileData", userProfileData);
-        UserProfile user = new UserProfile(userProfileData.getFirstName(), userProfileData.getLastName(),
-                userProfileData.getEmail(),userProfileData.getPassword(),userProfileData.getPhoneNumber());
+    @RequestMapping(value="/signup", method = RequestMethod.POST)
+    public String addNewUser(@RequestBody UserProfileData user) {
         if (userRepository.existsByEmail(user.getEmail())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email address already exists.");
         }
@@ -44,15 +33,15 @@ public class SignUpController {
         newUser.setLastName(user.getLastName());
         newUser.setEmail(user.getEmail());
         newUser.setPhoneNumber(user.getPhoneNumber());
-        newUser.setPassword(user.getPassword());
+
+        newUser.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(newUser);
-        return "login";
+        return "adduser";
     }
 
-    @GetMapping(path="/allusers")
+    @RequestMapping(value="/allusers", method = RequestMethod.GET)
     public @ResponseBody Iterable<UserProfile> getAllUsers() {
         // This returns a JSON or XML with the users
         return userRepository.findAll();
     }
-
 }

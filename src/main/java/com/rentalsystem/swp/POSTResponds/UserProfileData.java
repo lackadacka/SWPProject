@@ -1,19 +1,23 @@
 package com.rentalsystem.swp.POSTResponds;
 
-import com.rentalsystem.swp.Repositories.UserRepository;
-import com.rentalsystem.swp.dao.UserProfile;
+import com.rentalsystem.swp.models.Role;
+import com.rentalsystem.swp.models.UserProfile;
 import lombok.Data;
-
-import java.util.Optional;
 
 @Data
 public class UserProfileData {
-
-    long id;
-    String firstName;
-    String lastName;
-    String email;
-    String password;
-    String phoneNumber;
-
+    private long id;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String password;
+    private String phoneNumber;
+    private Role role;
+    public UserProfileData(UserProfile userProfile) {
+        id = userProfile.getId();
+        email = userProfile.getEmail();
+        firstName = userProfile.getFirstName();
+        lastName = userProfile.getLastName();
+        role = userProfile.getRole();
+    }
 }
