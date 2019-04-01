@@ -16,18 +16,22 @@ public class AddItemController {
         this.itemRepository = itemRepository;
     }
 
-    @RequestMapping(value = "/additem", method = RequestMethod.POST)
-    public String addNewItem(@RequestBody ItemProfileData item){
+    @GetMapping("/menu")
+    public String menu(){
+        return "headerMenu";
+    }
+
+    @PostMapping("/additem")
+    public void addNewItem(@RequestBody ItemProfileData item){
         ItemProfile newItem = new ItemProfile();
         newItem.setName(item.getName());
         newItem.setDescription(item.getDescription());
         newItem.setTimeSlots(item.getTimeSlots());
 
         itemRepository.save(newItem);
-        return "additem";
     }
 
-    @RequestMapping(value="/allitems", method = RequestMethod.GET)
+    @GetMapping(path="/allitems")
     public @ResponseBody
     Iterable<ItemProfile> getAllItems() {
         // This returns a JSON or XML with the users
