@@ -1,48 +1,18 @@
 package com.rentalsystem.swp.controllers;
 
 import com.rentalsystem.swp.POSTResponds.LoginData;
-import com.rentalsystem.swp.POSTResponds.UserProfileData;
 import com.rentalsystem.swp.Repositories.UserRepository;
+import com.rentalsystem.swp.dao.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-/*
-@RestController
-public class LoginController {
-    private AuthenticationManager authenticationManager;
-    private TokenAuthenticationProvider tokenProvider;
+import java.util.Optional;
 
-
-    @PostMapping("/login")
-    public LoginData loginUser(@RequestBody LoginData user){
-        try {
-            Authentication auth = authenticationManager
-                    .authenticate(new UsernamePasswordAuthenticationToken(user.getLogin(), user.getPassword()));
-            SecurityContextHolder.getContext().setAuthentication(auth);
-
-            String token = tokenProvider.createToken(auth);
-
-            return new LoginData(token);
-        } catch (AuthenticationException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid email or password.");
-        }
-
-
-
-    }
-}
-*/
 
 
 @Controller
@@ -65,8 +35,18 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@ModelAttribute("loginData") LoginData loginData, Model model) {
         model.addAttribute("loginData", loginData);
-
         model.addAttribute("userProfile", userRepository.findByEmail(loginData.getLogin()));
-        return "profile";
+
+        UserProfile userProfile = new UserProfile();
+
+        if(userRepository.existsByEmail(loginData.getLogin())) {
+            Optional<UserProfile> expected = userRepository.findByEmail(loginData.getLogin());
+            userProfile = expected.get();
+            if (userProfile.getPassword().equals(loginData.getPassword())) {
+                return "profile";
+            }
+        }
+        return "login?fail=true";
+
     }
 }
