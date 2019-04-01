@@ -21,7 +21,7 @@ public class LoginController {
     private UserRepository userRepository;
 
     @Autowired
-    public LoginController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public LoginController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
