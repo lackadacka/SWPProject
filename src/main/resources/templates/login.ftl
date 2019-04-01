@@ -3,7 +3,7 @@
 <@menu.menu profile="Sign In" sign="Sign Up" profile_ref="/login" sign_ref="/signup" title="Sign In">
     <div class="container">
         <h1>LOG IN</h1>
-        <form action="login.ftl" method="post">
+        <form action="/login" method="post">
             <div class="tbox">
                 <input type="text" placeholder="@username" value="" name="login">
             </div>
