@@ -122,6 +122,36 @@
     color: lightcyan;
     margin: 15px auto;
 }
+.item{
+    display: block;
+    background: darkseagreen;
+    border: #333333;
+    border-width: 2px;
+}
+.item h2{
+    font-family: "Montserrat", sans-serif;
+    font-size: 40px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    margin: 15px;
+}
+.item h1{
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    color: darkgray;
+    text-decoration: none;
+    text-align: center;
+    margin: 15px;
+}
+.item h4{
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+    color: black;
+    text-decoration: none;
+    text-align: right;
+    margin: 15px;
+}
 .edit_btn{
     width: 130px;
     height: 40px;
