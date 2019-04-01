@@ -1,14 +1,14 @@
 <#import "headerMenu.ftl" as menu>
 
-<@menu.menu profile="Sign In" sign="Sign Up" profile_ref="/login" sign_ref="/signup" title="Sign In">
+<@menu.menu signed_in=false title="Sign Up">
     <div class="cont">
         <h1>SIGN UP</h1>
         <form action="/signup" method="post">
             <div class="tbox">
-                <input type="text" placeholder="@FirstName" value="" name="firstname">
+                <input type="text" placeholder="@FirstName" value="" name="firstName">
             </div>
             <div class="tbox">
-                <input type="text" placeholder="@LastName" value="" name="lastname">
+                <input type="text" placeholder="@LastName" value="" name="lastName">
             </div>
             <div class="tbox">
                 <input type="email" placeholder="@Email" value="" name="email">
@@ -17,7 +17,7 @@
                 <input type="password" placeholder="@Password" value="" name="password">
             </div>
             <div class="tbox">
-                <input type="tel" placeholder="PhoneNumber" value="" name="phonenumber">
+                <input type="tel" placeholder="PhoneNumber" value="" name="phoneNumber">
             </div>
 
 
