@@ -5,6 +5,6 @@
         <h1>Name</h1>
         <h2>Email</h2>
         <h2>+79000000000</h2>
-        <input class="edit_btn" type="submit" value="Edit">
+        <a class="b2" href="/edit_user">EDIT INFORMATION</a>
     </div>
 </@menu.menu>
