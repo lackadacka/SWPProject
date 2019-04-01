@@ -5,6 +5,7 @@ import com.rentalsystem.swp.POSTResponds.ItemProfileData;
 import com.rentalsystem.swp.Repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -21,20 +22,18 @@ public class AddItemController {
         return "headerMenu";
     }
 
-//    @GetMapping("/login")
-//    public String login(){
-//        return "login";
-//    }
 
-    @PostMapping("/additem")
-    public void addNewItem(@RequestBody ItemProfileData item){
+    @RequestMapping("/additem")
+    public String addNewItem(@ModelAttribute("") ItemProfileData item, Model model){
         ItemProfile newItem = new ItemProfile();
         newItem.setName(item.getName());
         newItem.setDescription(item.getDescription());
         newItem.setTimeSlots(item.getTimeSlots());
 
         itemRepository.save(newItem);
+        return "additem";
     }
+
 
     @GetMapping(path="/allitems")
     public @ResponseBody
