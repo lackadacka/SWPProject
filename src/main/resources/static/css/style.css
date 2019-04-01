@@ -9,6 +9,7 @@
     padding: 0 20px;
     color: #fff;
     margin-bottom: 20px;
+    z-index: 2;
 }
 .logo{
     line-height: 100px;
@@ -169,7 +170,7 @@
     transform: translate(-50%, -50%);
     color: black;
     text-align: center;
-    z-index: 1;
+    z-index: -1;
 }
 .container h1{
     color: #ffffff;
