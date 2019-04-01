@@ -1,6 +1,6 @@
 package com.rentalsystem.swp.controllers;
 
-import com.rentalsystem.swp.dao.UserProfile;
+import com.rentalsystem.swp.models.UserProfile;
 import com.rentalsystem.swp.POSTResponds.UserProfileData;
 import com.rentalsystem.swp.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +36,7 @@ public class SignUpController {
 
         newUser.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(newUser);
-        return "signup";
+        return "adduser";
     }
 
     @RequestMapping(value="/allusers", method = RequestMethod.GET)
