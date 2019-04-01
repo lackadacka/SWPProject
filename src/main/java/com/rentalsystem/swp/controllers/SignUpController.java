@@ -24,16 +24,6 @@ public class SignUpController {
         this.passwordEncoder = passwordEncoder;
     }
 
-//    @GetMapping("/signup")
-//    public String signUp(){
-//        return "signup";
-//    }
-//    @RequestMapping(value = "/signup", method = RequestMethod.GET)
-//    public String showSignup(Model model) {
-//        model.addAttribute("UserProfileData", new UserProfileData());
-//        return "signup";
-//    }
-
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public String showSignup(Model model){
         model.addAttribute("userProfileData", new UserProfileData());
@@ -43,7 +33,8 @@ public class SignUpController {
     public String signUp(@ModelAttribute("userProfileData") UserProfileData userProfileData, Model model){
 
         model.addAttribute("UserProfileData", userProfileData);
-        UserProfile user = new UserProfile(userProfileData.getFirstName(), userProfileData.getLastName(), userProfileData.getEmail(),userProfileData.getPassword(),userProfileData.getPhoneNumber());
+        UserProfile user = new UserProfile(userProfileData.getFirstName(), userProfileData.getLastName(),
+                userProfileData.getEmail(),userProfileData.getPassword(),userProfileData.getPhoneNumber());
         if (userRepository.existsByEmail(user.getEmail())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email address already exists.");
         }
@@ -53,23 +44,10 @@ public class SignUpController {
         newUser.setLastName(user.getLastName());
         newUser.setEmail(user.getEmail());
         newUser.setPhoneNumber(user.getPhoneNumber());
+        newUser.setPassword(user.getPassword());
+        userRepository.save(newUser);
         return "login";
     }
-//    @GetMapping("/signup")
-//    public void addNewUser(UserProfileData user) {
-//        if (userRepository.existsByEmail(user.getEmail())) {
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email address already exists.");
-//        }
-//
-//        UserProfile newUser = new UserProfile();
-//        newUser.setFirstName(user.getFirstName());
-//        newUser.setLastName(user.getLastName());
-//        newUser.setEmail(user.getEmail());
-//        newUser.setPhoneNumber(user.getPhoneNumber());
-//
-//        newUser.setPassword(passwordEncoder.encode(user.getPassword()));
-//        userRepository.save(newUser);
-//    }
 
     @GetMapping(path="/allusers")
     public @ResponseBody Iterable<UserProfile> getAllUsers() {
