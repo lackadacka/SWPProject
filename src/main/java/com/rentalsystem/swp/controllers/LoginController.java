@@ -4,7 +4,6 @@ import com.rentalsystem.swp.POSTResponds.LoginData;
 import com.rentalsystem.swp.Repositories.UserRepository;
 import com.rentalsystem.swp.dao.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,7 +20,7 @@ public class LoginController {
     private UserRepository userRepository;
 
     @Autowired
-    public LoginController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public LoginController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -37,7 +36,7 @@ public class LoginController {
         model.addAttribute("loginData", loginData);
         model.addAttribute("userProfile", userRepository.findByEmail(loginData.getLogin()));
 
-        UserProfile userProfile = new UserProfile();
+        UserProfile userProfile;
 
         if(userRepository.existsByEmail(loginData.getLogin())) {
             Optional<UserProfile> expected = userRepository.findByEmail(loginData.getLogin());
