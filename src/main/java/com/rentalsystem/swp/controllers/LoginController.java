@@ -8,10 +8,11 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.ModelAndView;
 
 /*
 @RestController
@@ -39,3 +40,19 @@ public class LoginController {
     }
 }
 */
+
+@Controller
+public class LoginController {
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String showLogin(Model model) {
+        model.addAttribute("loginData", new LoginData());
+        return "login";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(@ModelAttribute("loginData") LoginData loginData, Model model) {
+        model.addAttribute("loginData", loginData);
+        return "profile";
+    }
+}

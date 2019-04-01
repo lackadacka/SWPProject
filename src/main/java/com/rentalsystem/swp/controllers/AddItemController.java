@@ -21,10 +21,10 @@ public class AddItemController {
         return "headerMenu";
     }
 
-    @GetMapping("/login")
-    public String login(){
-        return "login";
-    }
+//    @GetMapping("/login")
+//    public String login(){
+//        return "login";
+//    }
 
     @PostMapping("/additem")
     public void addNewItem(@RequestBody ItemProfileData item){
