@@ -1,4 +1,4 @@
-<#macro menuLoggedIn>
+<#macro menu profile sign profile_ref sign_ref>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     </head>
     <body>
-
            <div class="header">
                <h2 class="logo">Rental System</h2>
                <input type="checkbox" id="chk">
@@ -18,8 +17,8 @@
                </label>
 
                <ul class="menu">
-                   <a href="#">My Profile</a>
-                   <a href="#">Sign out</a>
+                   <a href="{$profile_ref}">{$profile}</a>
+                   <a href="{$sign_ref}">{$sign}</a>
                    <label for="chk" class="hide-menu-bar">
                        <i class="fas fa-chevron-circle-down"></i>
                    </label>
@@ -27,7 +26,7 @@
            </div>
 
     <div class="content">
-        <#nested>
+        <#nested >
     </div>
 
     </body>

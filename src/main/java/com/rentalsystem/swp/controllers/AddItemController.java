@@ -1,6 +1,6 @@
 package com.rentalsystem.swp.controllers;
 
-import com.rentalsystem.swp.models.ItemProfile;
+import com.rentalsystem.swp.dao.ItemProfile;
 import com.rentalsystem.swp.POSTResponds.ItemProfileData;
 import com.rentalsystem.swp.Repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,12 @@ public class AddItemController {
         this.itemRepository = itemRepository;
     }
 
-    @RequestMapping(value = "/additem", method = RequestMethod.POST)
+    @GetMapping("/menu")
+    public String menu(){
+        return "headerMenu";
+    }
+
+    @PostMapping("/additem")
     public void addNewItem(@RequestBody ItemProfileData item){
         ItemProfile newItem = new ItemProfile();
         newItem.setName(item.getName());
@@ -26,7 +31,7 @@ public class AddItemController {
         itemRepository.save(newItem);
     }
 
-    @RequestMapping(value="/allitems", method = RequestMethod.GET)
+    @GetMapping(path="/allitems")
     public @ResponseBody
     Iterable<ItemProfile> getAllItems() {
         // This returns a JSON or XML with the users
