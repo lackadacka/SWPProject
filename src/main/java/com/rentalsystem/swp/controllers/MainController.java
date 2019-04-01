@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -22,7 +23,9 @@ public class MainController {
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public String showCatalog(Model model) {
         List<ItemProfile> list = itemRepository.findAll();
-        model.addAttribute("itemsList", list);
+        HashMap<String, List> itemsList = new HashMap<>();
+        itemsList.put("items", list);
+        model.addAttribute("itemsList", itemsList);
         return "main";
     }
 }
