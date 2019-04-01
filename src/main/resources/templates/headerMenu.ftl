@@ -4,7 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <title>${title}</title>
-        <link rel="stylesheet" type="text/css" href="/static/css/menuStyle.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
 
     </head>
     <body>
