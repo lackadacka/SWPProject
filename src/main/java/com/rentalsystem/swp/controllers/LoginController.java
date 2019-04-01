@@ -46,7 +46,7 @@ public class LoginController {
                 return "profile";
             }
         }
-        return "login?fail=true";
+        return "login";
 
     }
 }
