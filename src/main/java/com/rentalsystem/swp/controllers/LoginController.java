@@ -35,14 +35,13 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@ModelAttribute("loginData") LoginData loginData, Model model) {
         model.addAttribute("loginData", loginData);
-        model.addAttribute("userProfile", userRepository.findByEmail(loginData.getLogin()));
 
-        UserProfile userProfile = new UserProfile();
-
+        UserProfile userProfile;
         if(userRepository.existsByEmail(loginData.getLogin())) {
             Optional<UserProfile> expected = userRepository.findByEmail(loginData.getLogin());
             userProfile = expected.get();
             if (userProfile.getPassword().equals(loginData.getPassword())) {
+                model.addAttribute("userProfile", userProfile);
                 return "profile";
             }
         }
