@@ -1,0 +1,175 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "montserrat",sans-serif;
+}
+.header{
+    height: 100px;
+    background: #34495e;
+    padding: 0 20px;
+    color: #fff;
+}
+.logo{
+    line-height: 100px;
+    float: left;
+    text-transform: uppercase;
+}
+
+.menu{
+    float: right;
+    line-height: 100px;
+
+}
+.menu a{
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0 20px;
+    transition: 0.4s;
+}
+.show-menu-bar,.hide-menu-bar{
+    padding: 0 10px;
+    transition: 0.4s;
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+.show-menu-bar{
+    float: right;
+}
+.show-menu-bar i{
+    line-height: 100px;
+}
+.menu a:hover,
+.show-menu-bar:hover,
+.hide-menu-bar:hover{
+    color: #3498db;
+}
+
+#chk{
+    position: absolute;
+    visibility: hidden;
+    z-index: -1111;
+
+}
+.content{
+    padding: 0 20px;
+    background: grey;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+@media screen and (max-width: 800px){
+    .show-menu-bar,.hide-menu-bar{
+        display: block;
+    }
+    .menu{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #333;
+        right: -100%;
+        top: 0;
+        text-align: center;
+        padding: 80px 0;
+        line-height: normal;
+        transition: 0.7s;
+    }
+    .menu a{
+        display: block;
+        padding: 20px;
+    }
+    .hide-menu-bar{
+        position: absolute;
+        top: 40px;
+        right: 40px;
+    }
+    #chk:checked ~ .menu{
+        right: 0;
+    }
+}
+
+
+.container{
+    width: 360px;
+    height: 500px;
+    background: cyan;
+    position: absolute;
+    border-radius: 20px;
+    margin-top: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    text-align: center;
+}
+.container h1{
+    font-size: 40px;
+    margin-top: 90px;
+    margin-bottom: 60px;
+}
+.tbox{
+    width: 260px;
+    height: 40px;
+    background: #f1f1f1b3;
+    border-radius: 10px;
+    margin: 10px auto;
+
+}
+.tbox input{
+    background: none;
+    border: none;
+    outline: none;
+    text-align: center;
+    width: 90%;
+    line-height: 37px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+.btn{
+    width: 260px;
+    height: 40px;
+    border-radius: 10px;
+    margin: 14px auto;
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-size: 20px;
+    border: none;
+    background: #3498db;
+    color: black;
+    cursor: pointer;
+}
+.b1{
+    display: block;
+    width: 260px;
+    padding: 10px 0;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    margin: auto;
+    transition: 0.4s all;
+    visibility: hidden;
+    border-radius: 10px;
+}
+.b2{
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    padding: 10px 0;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.4s all;
+    color: black;
+    border-radius: 10px;
+}
+a{
+    transition: 0.3s;
+}
+a:hover{
+    transform: scale(0.8);
+
+}
