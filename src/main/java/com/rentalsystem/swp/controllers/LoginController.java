@@ -42,7 +42,7 @@ public class LoginController {
             Optional<UserProfile> expected = userRepository.findByEmail(loginData.getLogin());
             userProfile = expected.get();
             if (userProfile.getPassword().equals(loginData.getPassword())) {
-                return "profile";
+                return "profile?login="+loginData.getLogin();
             }
         }
         return "login?fail=true";
