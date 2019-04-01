@@ -1,48 +1,16 @@
-package com.rentalsystem.swp.controllers;
+    package com.rentalsystem.swp.controllers;
 
-import com.rentalsystem.swp.POSTResponds.LoginData;
-import com.rentalsystem.swp.POSTResponds.UserProfileData;
-import com.rentalsystem.swp.Repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
-import org.springframework.web.servlet.ModelAndView;
+    import com.rentalsystem.swp.POSTResponds.LoginData;
+    import com.rentalsystem.swp.Repositories.UserRepository;
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.security.crypto.password.PasswordEncoder;
+    import org.springframework.stereotype.Controller;
+    import org.springframework.ui.Model;
+    import org.springframework.web.bind.annotation.ModelAttribute;
+    import org.springframework.web.bind.annotation.RequestMapping;
+    import org.springframework.web.bind.annotation.RequestMethod;
+    import org.springframework.web.bind.annotation.RequestParam;
 
-/*
-@RestController
-public class LoginController {
-    private AuthenticationManager authenticationManager;
-    private TokenAuthenticationProvider tokenProvider;
-
-
-    @PostMapping("/login")
-    public LoginData loginUser(@RequestBody LoginData user){
-        try {
-            Authentication auth = authenticationManager
-                    .authenticate(new UsernamePasswordAuthenticationToken(user.getLogin(), user.getPassword()));
-            SecurityContextHolder.getContext().setAuthentication(auth);
-
-            String token = tokenProvider.createToken(auth);
-
-            return new LoginData(token);
-        } catch (AuthenticationException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid email or password.");
-        }
-
-
-
-    }
-}
-*/
 
 
 @Controller
@@ -57,8 +25,9 @@ public class LoginController {
 
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String showLogin(Model model) {
+    public String showLogin(@RequestParam(name="name", required = false, defaultValue = "World") String name, Model model) {
         model.addAttribute("loginData", new LoginData());
+        model.addAttribute("name", name);
         return "login";
     }
 
