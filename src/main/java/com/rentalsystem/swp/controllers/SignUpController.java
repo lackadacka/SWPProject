@@ -22,8 +22,8 @@ public class SignUpController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @PostMapping("/signup")
-    public void addNewUser(@RequestBody UserProfileData user) {
+    @RequestMapping(value="/signup", method = RequestMethod.POST)
+    public String addNewUser(@RequestBody UserProfileData user) {
         if (userRepository.existsByEmail(user.getEmail())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email address already exists.");
         }
@@ -36,9 +36,10 @@ public class SignUpController {
 
         newUser.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(newUser);
+        return "signup";
     }
 
-    @GetMapping(path="/allusers")
+    @RequestMapping(value="/allusers", method = RequestMethod.GET)
     public @ResponseBody Iterable<UserProfile> getAllUsers() {
         // This returns a JSON or XML with the users
         return userRepository.findAll();

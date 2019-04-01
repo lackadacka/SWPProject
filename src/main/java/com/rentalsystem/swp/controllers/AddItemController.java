@@ -4,9 +4,10 @@ import com.rentalsystem.swp.dao.ItemProfile;
 import com.rentalsystem.swp.POSTResponds.ItemProfileData;
 import com.rentalsystem.swp.Repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 public class AddItemController {
     @Autowired
     private final ItemRepository itemRepository;
@@ -15,17 +16,18 @@ public class AddItemController {
         this.itemRepository = itemRepository;
     }
 
-    @PostMapping("/additem")
-    public void addNewItem(@RequestBody ItemProfileData item){
+    @RequestMapping(value = "/additem", method = RequestMethod.POST)
+    public String addNewItem(@RequestBody ItemProfileData item){
         ItemProfile newItem = new ItemProfile();
         newItem.setName(item.getName());
         newItem.setDescription(item.getDescription());
         newItem.setTimeSlots(item.getTimeSlots());
 
         itemRepository.save(newItem);
+        return "additem";
     }
 
-    @GetMapping(path="/allitems")
+    @RequestMapping(value="/allitems", method = RequestMethod.GET)
     public @ResponseBody
     Iterable<ItemProfile> getAllItems() {
         // This returns a JSON or XML with the users
