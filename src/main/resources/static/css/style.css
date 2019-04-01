@@ -8,6 +8,7 @@
     background: #34495e;
     padding: 0 20px;
     color: #fff;
+    margin-bottom: 20px;
 }
 .logo{
     line-height: 100px;
@@ -74,6 +75,7 @@
         padding: 80px 0;
         line-height: normal;
         transition: 0.7s;
+        z-index: 10;
     }
     .menu a{
         display: block;
@@ -93,17 +95,20 @@
 .container{
     width: 360px;
     height: 500px;
-    background: cyan;
+    background: #34495e;
     position: absolute;
     border-radius: 20px;
-    margin-top: 80px;
+    margin-top: 100px;
+    margin-bottom: 30px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: black;
     text-align: center;
+    z-index: 1;
 }
 .container h1{
+    color: #ffffff;
     font-size: 40px;
     margin-top: 90px;
     margin-bottom: 60px;
@@ -140,8 +145,13 @@
     background: #3498db;
     color: black;
     cursor: pointer;
+    transition: 0.7s;
+}
+.btn:hover{
+    transform: scale(0.9);
 }
 .b1{
+    visibility: hidden;
     display: block;
     width: 260px;
     padding: 10px 0;
@@ -150,11 +160,11 @@
     text-align: center;
     margin: auto;
     transition: 0.4s all;
-    visibility: hidden;
     border-radius: 10px;
 }
 .b2{
     position: absolute;
+    display: block;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
@@ -163,13 +173,9 @@
     text-decoration: none;
     text-align: center;
     transition: 0.4s all;
-    color: black;
+    color: white;
     border-radius: 10px;
 }
-a{
-    transition: 0.3s;
-}
-a:hover{
-    transform: scale(0.8);
-
+.b2:hover{
+    background: #3498db;
 }

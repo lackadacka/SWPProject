@@ -1,20 +1,19 @@
 <#import "headerMenu.ftl" as menu>
 
-<@menu.menu profile="Sign In" sign="Sign Up" profile_ref="/login" sign_ref="/register" title="Sign In">
+<@menu.menu profile="Sign In" sign="Sign Up" profile_ref="/login" sign_ref="/signup" title="Sign In">
     <div class="container">
         <h1>LOG IN</h1>
         <form action="login.ftl" method="post">
             <div class="tbox">
-                <input type="text" placeholder="@username" value="">
+                <input type="text" placeholder="@username" value="" name="login">
             </div>
 
             <div class="tbox">
-                <input type="password" placeholder="@password" value="">
+                <input type="password" placeholder="@password" value="" name="password">
             </div>
 
-            <input class="btn" type="submit" placeholder="" value="Sign In">
+            <input class="btn" type="submit" placeholder="" value="Sign In" name="submit">
         </form>
-        <a class="b1" href="#">FORGOT PASSWORD</a>
-        <a class="b2" href="#">CREATE AN ACCOUNT</a>
+        <a class="b2" href="/signup">CREATE AN ACCOUNT</a>
     </div>
 </@menu.menu>
