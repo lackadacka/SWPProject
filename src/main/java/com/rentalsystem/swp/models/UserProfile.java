@@ -23,6 +23,14 @@ public class UserProfile {
     @Enumerated(value = EnumType.STRING)
     private Role role;
 
+    public UserProfile(@NotNull String firstName, @NotNull String lastName, String email, String password, String phoneNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+    }
+
     public long getId() {
         return id;
     }

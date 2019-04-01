@@ -8,6 +8,7 @@ public class ItemProfileData {
     private String name;
     private String description;
     private String timeSlots;
+    private String category;
 
     public long getId() {
         return id;
