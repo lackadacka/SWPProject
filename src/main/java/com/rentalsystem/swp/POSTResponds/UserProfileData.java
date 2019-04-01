@@ -15,4 +15,5 @@ public class UserProfileData {
     String email;
     String password;
     String phoneNumber;
+
 }
