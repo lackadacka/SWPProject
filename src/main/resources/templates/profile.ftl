@@ -1,6 +1,6 @@
 <#import "headerMenu.ftl" as menu>
 
-<@menu.menu profile="My Profile" profile_ref="/profile" sign="Sign Out" sign_ref="/login" title="My Profile">
+<@menu.menu signed_in=true title="My Profile">
     <div class="profile">
         <h1>Name</h1>
         <h2>Email</h2>

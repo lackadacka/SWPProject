@@ -1,4 +1,4 @@
-<#macro menu profile sign profile_ref sign_ref title>
+<#macro menu signed_in title>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -16,7 +16,20 @@
         <label for="chk" class="show-menu-bar">
             <i class="fas fa-bars"></i>
         </label>
+        <#if signed_in>
+            <#assign
+                profile_ref = "/profile"
+                profile = "My Profile"
+                sign_ref = "/logout"
+                sign = "Sign Out">
+        <#else>
+            <#assign
+            profile_ref = "/login"
+            profile = "Sign In"
+            sign_ref = "/signup"
+            sign = "Sign Up">
 
+        </#if>
         <ul class="menu">
             <a href="${profile_ref}">${profile}</a>
             <a href="${sign_ref}">${sign}</a>
