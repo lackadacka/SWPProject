@@ -6,6 +6,7 @@
     <form action="/main" method="post">
         <#list items as item>
             <#assign
+                id = item.id
                 name = item.name
                 description = item.description
                 category = item.category
