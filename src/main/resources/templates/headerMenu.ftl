@@ -18,7 +18,7 @@
         </label>
         <#if signed_in>
             <#assign
-                profile_ref = "/profile"
+                profile_ref = "/login"
                 profile = "My Profile"
                 sign_ref = "/login"
                 sign = "Sign Out">
