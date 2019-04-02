@@ -20,7 +20,7 @@
             <#assign
                 profile_ref = "/profile"
                 profile = "My Profile"
-                sign_ref = "/logout"
+                sign_ref = "/login"
                 sign = "Sign Out">
         <#else>
             <#assign
