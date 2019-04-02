@@ -23,9 +23,7 @@ public class MainController {
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public String showCatalog(Model model) {
         List<ItemProfile> list = itemRepository.findAll();
-        HashMap<String, List> itemsList = new HashMap<>();
-        itemsList.put("items", list);
-        model.addAttribute("itemsList", itemsList);
+        model.addAttribute("itemsList", list);
         return "main";
     }
 }

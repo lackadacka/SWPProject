@@ -239,6 +239,15 @@
     margin: 10px auto;
 
 }
+.sel{
+    width: 260px;
+    height:40px;
+    background: #f1f1f1b3;
+    border-radius: 10px;
+}
+.opt{
+    background: #f1f1f1b3;
+}
 .tbox input{
     background: none;
     border: none;
