@@ -11,7 +11,7 @@
                 description = item.description
                 category = item.category
             >
-            <a class="items" href="/ad">
+            <a class="items" href="/ad?id=${item.id}">
                 <@i.item name=name
                 description=description
                 category=category/>

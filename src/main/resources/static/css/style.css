@@ -133,6 +133,34 @@
     text-decoration: none;
     transition: 0.5s;
 }
+.ad{
+    width: 600px;
+    height: 700px;
+    background: lightblue;
+    position: absolute;
+    border-radius: 20px;
+    margin-top: 70px;
+    margin-bottom: 30px;
+    padding: 0 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    text-align: left;
+    z-index: 1;
+}
+.ad h1{
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50px;
+}
+.ad h2{
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    text-align: left;
+    margin: 10px;
+}
 .items{
     text-decoration: none;
     display: block;

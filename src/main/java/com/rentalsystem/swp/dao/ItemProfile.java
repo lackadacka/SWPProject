@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class ItemProfile {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private long id;
+    private Integer id;
     private String name;
     private String description;
     private String timeSlots;
