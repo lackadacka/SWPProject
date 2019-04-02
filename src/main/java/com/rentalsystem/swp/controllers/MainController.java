@@ -23,7 +23,7 @@ public class MainController {
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public String showCatalog(Model model) {
         List<ItemProfile> list = itemRepository.findAll();
-        model.addAttribute("itemsList", list);
+        model.addAttribute("items", list);
         return "main";
     }
 }
