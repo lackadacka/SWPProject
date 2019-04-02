@@ -124,9 +124,25 @@
 }
 .item{
     display: block;
-    background: darkseagreen;
+    width: 700px;
+    background: lightblue;
     border: #333333;
-    border-width: 2px;
+    border-radius: 10px;
+    margin: 7px;
+    position: center;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.items{
+    text-decoration: none;
+    display: block;
+    transition: 0.5s;
+    width: 700px;
+    position: center;
+    margin: 7px;
+}
+.item:hover{
+    transform: scale(1.1);
 }
 .item h2{
     font-family: "Montserrat", sans-serif;
@@ -135,18 +151,19 @@
     text-decoration: none;
     text-align: center;
     margin: 15px;
+    padding: 20px 0;
 }
 .item h1{
     font-family: "Montserrat", sans-serif;
     font-size: 15px;
-    color: darkgray;
+    color: black;
     text-decoration: none;
     text-align: center;
     margin: 15px;
 }
 .item h4{
     font-family: "Montserrat", sans-serif;
-    font-size: 25px;
+    font-size: 20px;
     color: black;
     text-decoration: none;
     text-align: right;
