@@ -41,4 +41,8 @@ public class ItemProfileData {
     public void setTimeSlots(String timeSlots) {
         this.timeSlots = timeSlots;
     }
+
+    public String getCategory() { return category; }
+
+    public void setCategory(String category) { this.category = category; }
 }

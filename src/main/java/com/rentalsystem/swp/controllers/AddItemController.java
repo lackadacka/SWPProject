@@ -23,15 +23,25 @@ public class AddItemController {
     }
 
 
-    @RequestMapping("/additem")
-    public String addNewItem(@ModelAttribute("") ItemProfileData item, Model model){
-        ItemProfile newItem = new ItemProfile();
-        newItem.setName(item.getName());
-        newItem.setDescription(item.getDescription());
-        newItem.setTimeSlots(item.getTimeSlots());
-
-        itemRepository.save(newItem);
+    @RequestMapping(value = "/additem", method = RequestMethod.GET)
+    public String showItem(Model model){
+        model.addAttribute("itemProfileData", new ItemProfileData());
         return "additem";
+    }
+
+    @RequestMapping(value = "/additem", method = RequestMethod.POST)
+    public String addNewItem(@ModelAttribute("itemProfileData") ItemProfileData itemProfileData, Model model){
+        model.addAttribute("ItemProfileData",  itemProfileData);
+        ItemProfile item = new ItemProfile(itemProfileData.getName(), itemProfileData.getDescription(),
+                                            itemProfileData.getTimeSlots(),itemProfileData.getCategory());
+//        ItemProfile newItem = new ItemProfile();
+//        newItem.setName(item.getName());
+//        newItem.setDescription(item.getDescription());
+//        newItem.setTimeSlots(item.getTimeSlots());
+//        newItem.setCategory(item.getCategory()).;
+
+        itemRepository.save(item);
+        return "login";
     }
 
 
