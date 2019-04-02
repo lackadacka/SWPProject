@@ -10,5 +10,4 @@ public class ItemProfileData {
     private String timeSlots;
     private String category;
     private String owner;
-
 }
