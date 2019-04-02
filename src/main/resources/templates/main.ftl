@@ -5,10 +5,15 @@
 <@menu.menu signed_in=sign title="Main Page">
     <form action="/main" method="post">
         <#list items as item>
-            <a href="/ad">
-                <@i.item(name=${item.name} /
-                description=${item.description} /
-                category=${item.category})/>
+            <#assign
+                name = item.name
+                description = item.description
+                category = item.category
+            >
+            <a class="items" href="/ad">
+                <@i.item name=name
+                description=description
+                category=category/>
             </a>
         </#list>
     </form>
