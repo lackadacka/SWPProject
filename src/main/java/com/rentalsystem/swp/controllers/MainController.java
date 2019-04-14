@@ -21,7 +21,7 @@ public class MainController {
     }
 
 
-    @RequestMapping(value = "/main", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String showCatalog(Model model) {
         List<ItemProfile> list = itemRepository.findAll();
         Integer id = 0;
@@ -30,7 +30,7 @@ public class MainController {
         return "main";
     }
 
-    @RequestMapping(value = "/main", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.POST)
     public String showCatalog(@ModelAttribute("id") Integer id, Model model) {
         model.addAttribute("id", id);
 

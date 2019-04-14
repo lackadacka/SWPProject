@@ -11,7 +11,7 @@
     </head>
     <body>
     <div class="header">
-        <a class="lg" href="/main"><h2 class="logo">Rental System</h2></a>
+        <a class="lg" href="/"><h2 class="logo">Rental System</h2></a>
         <input type="checkbox" id="chk">
         <label for="chk" class="show-menu-bar">
             <i class="fas fa-bars"></i>

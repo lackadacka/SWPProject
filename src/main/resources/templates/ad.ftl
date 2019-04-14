@@ -16,7 +16,10 @@
             <h2>${userProfile.phoneNumber}</h2>
             <h2>${userProfile.email}</h2>
         </div>
-        <a class="b1" href="/edit_user">EDIT INFORMATION</a>
+        <#--<a class="b1" href="/edititem">EDIT INFORMATION</a>-->
+        <form action="/edititem" method="get">
+            <input type="submit" class="btn" value="EDIT ADVERT">
+        </form>
         <a class="b2" href="/additem">ADD NEW ITEM</a>
     </div>
 </@menu.menu>
