@@ -20,6 +20,8 @@
         <form action="/edititem" method="get">
             <input type="submit" class="btn" value="EDIT ADVERT">
         </form>
-        <a class="b2" href="/additem">ADD NEW ITEM</a>
+        <form action="/delete" method="get">
+            <input type="submit" class="btn" value="DELETE ADVERT">
+        </form>
     </div>
 </@menu.menu>

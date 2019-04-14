@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@SessionAttributes("id")
+@SessionAttributes({"id", "userProfile"})
 public class AdController {
 
     private final ItemRepository itemRepository;
@@ -26,7 +26,6 @@ public class AdController {
 
     @RequestMapping(value = "/ad", method = RequestMethod.GET)
     public String showAd(@RequestParam(name = "id", required = false, defaultValue = "") Integer id, Model model) {
-
         model.addAttribute("id", id);
         Optional<ItemProfile> item = itemRepository.findById(id);
         ItemProfile itemProfile  = item.get();
@@ -36,13 +35,4 @@ public class AdController {
         model.addAttribute("itemProfile", itemProfile);
         return "ad";
     }
-
-    @RequestMapping(value="/edit", method = RequestMethod.POST)
-    public String editAd(@ModelAttribute Integer id, Model model) {
-        model.addAttribute("id", id);
-        return "forward:/edititem";
-    }
-
-
-
 }
