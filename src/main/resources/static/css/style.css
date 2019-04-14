@@ -109,7 +109,7 @@
     border-radius: 20px;
     margin-top: 70px;
     margin-bottom: 30px;
-    padding: 0 30px;
+    padding: 30px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -138,10 +138,10 @@
     background: lightblue;
     border: #333333;
     border-radius: 10px;
-    margin: 7px;
     position: center;
     text-decoration: none;
     transition: 0.5s;
+    padding: 10px;
 }
 .ad{
     width: 600px;
@@ -351,6 +351,7 @@
     transform: scale(0.9);
 }
 .b1{
+    visibility: hidden;
     display: block;
     width: 260px;
     padding: 10px 0;
@@ -365,7 +366,6 @@
     position: absolute;
     display: block;
     bottom: 30px;
-    margin: 20px;
     left: 50%;
     transform: translateX(-50%);
     width: 260px;

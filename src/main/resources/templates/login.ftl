@@ -4,7 +4,7 @@
 <@menu.menu signed_in=false title="Sign In">
     <div class="container">
         <h1>LOG IN</h1>
-        <form action="/login" method="post">
+        <form action="/profile" method="get">
             <div class="tbox">
                 <input type="text" placeholder="@username" value="" name="login">
             </div>
