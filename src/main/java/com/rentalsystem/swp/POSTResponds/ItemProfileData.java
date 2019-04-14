@@ -8,6 +8,7 @@ public class ItemProfileData {
     private String name;
     private String description;
     private String timeSlots;
+    private int price;
     private String category;
     private String owner;
 }

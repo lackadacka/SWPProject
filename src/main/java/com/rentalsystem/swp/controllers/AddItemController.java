@@ -33,7 +33,8 @@ public class AddItemController {
     public String addNewItem(@ModelAttribute("itemProfileData") ItemProfileData itemProfileData, Model model){
         model.addAttribute("ItemProfileData",  itemProfileData);
         ItemProfile item = new ItemProfile(itemProfileData.getName(), itemProfileData.getDescription(),
-                                            itemProfileData.getTimeSlots(),itemProfileData.getCategory(), itemProfileData.getOwner());
+                                            itemProfileData.getTimeSlots(), itemProfileData.getPrice(),
+                                            itemProfileData.getCategory(), itemProfileData.getOwner());
 //        ItemProfile newItem = new ItemProfile();
 //        newItem.setName(item.getName());
 //        newItem.setDescription(item.getDescription());

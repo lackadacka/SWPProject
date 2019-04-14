@@ -10,8 +10,16 @@
             <div class="tbox">
                 <input type="text" placeholder="@description" value="" name="description">
             </div>
+            <select class="sel" size="1" name="timeSlots">
+                    <option class="opt" selected disabled>Choose timing</option>
+                    <option class="opt" value="Per hour">Per Hour</option>
+                    <option class="opt" value="Per day">Per Day</option>
+                    <option class="opt" value="Per week">Per Week</option>
+                    <option class="opt" value="Per month">Per Month</option>
+                    <option class="opt" value="Per year">Per Year</option>
+            </select>
             <div class="tbox">
-                <input type="text" placeholder="@Timeslots" value="" name="timeSlots">
+                <input type="number" placeholder="@Price $" value="" name="price">
             </div>
             <select class="sel" size="1" name = "category">
                     <option class = "opt" selected disabled>Choose category</option>

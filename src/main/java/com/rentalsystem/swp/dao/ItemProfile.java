@@ -15,13 +15,15 @@ public class ItemProfile {
     private String name;
     private String description;
     private String timeSlots;
+    private Integer price;
     private String category;
     private String owner;
 
-    public ItemProfile(String name, String description, String timeSlots, String category, String owner) {
+    public ItemProfile(String name, String description, String timeSlots, Integer price, String category, String owner) {
         this.name = name;
         this.description = description;
         this.timeSlots = timeSlots;
+        this.price = price;
         this.category = category;
         this.owner = owner;
     }
