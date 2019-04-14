@@ -43,7 +43,6 @@ public class EditItemController {
         model.addAttribute("id", id);
         UserProfile userProfile = userRepository.findByEmail(itemRepository.findById(id).get().getOwner()).get();
         LoginData loginData = new LoginData();
-        System.out.println(userProfile.getEmail());
         loginData.setLogin(userProfile.getEmail());
         loginData.setPassword(userProfile.getPassword());
         model.addAttribute("loginData", loginData);

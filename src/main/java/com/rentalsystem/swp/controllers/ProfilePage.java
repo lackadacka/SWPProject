@@ -39,7 +39,6 @@ public class ProfilePage {
 
 
         model.addAttribute("loginData", loginData);
-        System.out.println(loginData.getLogin());
         UserProfile userProfile;
 
         if(userRepository.existsByEmail(loginData.getLogin())) {
