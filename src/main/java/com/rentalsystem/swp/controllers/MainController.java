@@ -2,12 +2,16 @@ package com.rentalsystem.swp.controllers;
 
 import com.rentalsystem.swp.Repositories.ItemRepository;
 import com.rentalsystem.swp.dao.ItemProfile;
+import com.rentalsystem.swp.security.ParserToken;
+import com.rentalsystem.swp.security.TokenAuthenticationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 
@@ -22,7 +26,9 @@ public class MainController {
 
 
     @RequestMapping(value = "/main", method = RequestMethod.GET)
-    public String showCatalog(Model model) {
+    public String showCatalog(Model model, HttpServletRequest request) {
+        ParserToken token = TokenAuthenticationService.getAuthentication(request);
+        if(token == null) return "login";
         List<ItemProfile> list = itemRepository.findAll();
         Integer id = 0;
         model.addAttribute("items", list);

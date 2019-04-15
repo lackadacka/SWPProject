@@ -28,4 +28,12 @@ public class UserProfile {
         this.password = password;
         this.phoneNumber = phoneNumber;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }
