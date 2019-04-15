@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.servlet.http.HttpSession;
+
 
 @Controller
 public class SignUpController {
@@ -25,13 +27,24 @@ public class SignUpController {
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
-    public String showSignup(Model model){
+    public String showSignup(Model model, HttpSession session){
+        String currentUser = (String)session.getAttribute("currentUser");
+        if (currentUser != null) {
+            session.setAttribute("currentUser", null);
+        }
+        model.addAttribute("auth", "false");
         model.addAttribute("userProfileData", new UserProfileData());
         return "signup";
     }
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String signUp(@ModelAttribute("userProfileData") UserProfileData userProfileData, Model model){
-
+    public String signUp(@ModelAttribute("userProfileData") UserProfileData userProfileData,
+                         Model model, HttpSession session){
+        String currentUser = (String)session.getAttribute("currentUser");
+        if (currentUser == null) {
+            model.addAttribute("auth", "false");
+        }
+        else
+            model.addAttribute("auth", "true");
         model.addAttribute("UserProfileData", userProfileData);
         UserProfile user = new UserProfile(userProfileData.getFirstName(), userProfileData.getLastName(),
                 userProfileData.getEmail(),userProfileData.getPassword(),userProfileData.getPhoneNumber());

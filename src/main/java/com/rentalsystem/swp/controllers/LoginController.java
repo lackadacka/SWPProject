@@ -40,6 +40,12 @@ public class LoginController {
         this.itemRepository = itemRepository;
     }
 
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout(Model model, HttpSession session) {
+        session.setAttribute("currentUser", null);
+        return "redirect:/";
+    }
+
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String showSignup(Model model, HttpSession session){
         String currentUser = (String) session.getAttribute("currentUser");
