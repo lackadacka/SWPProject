@@ -34,30 +34,19 @@ public class ProfilePage {
 
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
-    public String showProfile(@ModelAttribute("loginData") LoginData loginData, Model model) {
+    public String showProfile(@ModelAttribute("userProfile") UserProfile userProfile, Model model) {
 
 
-        model.addAttribute("loginData", loginData);
-        UserProfile userProfile;
+        model.addAttribute("userProfile", userProfile);
 
-        if(userRepository.existsByEmail(loginData.getEmail())) {
+        List<ItemProfile> items = itemRepository.findAllByOwnerIs(userProfile.getEmail());
+        Integer id = 0;
 
-            Optional<UserProfile> expected = userRepository.findByEmail(loginData.getEmail());
-            userProfile = expected.get();
+        model.addAttribute("items", items);
+        model.addAttribute("id", id);
 
-            if (userProfile.getPassword().equals(loginData.getPassword())) {
+        return "profile";
 
-                model.addAttribute("userProfile", userProfile);
-                List<ItemProfile> items = itemRepository.findAllByOwnerIs(userProfile.getEmail());
-                Integer id = 0;
-
-                model.addAttribute("items", items);
-                model.addAttribute("id", id);
-
-                return "profile";
-            }
-        }
-        return "login";
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.POST)
