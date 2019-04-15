@@ -8,6 +8,7 @@ import com.rentalsystem.swp.models.UserProfile;
 import com.rentalsystem.swp.security.UserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -36,11 +37,17 @@ public class ProfilePage {
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public String showProfile(Model model) {
-
-        UserPrincipal userPrincipal = (UserPrincipal) SecurityContextHolder.getContext()
+        String username;
+        Object userPrincipal = SecurityContextHolder.getContext()
                 .getAuthentication().getPrincipal();
+        if (userPrincipal instanceof UserDetails) {
+            username = ((UserDetails) userPrincipal).getUsername();
+        }
+        else {
+            username = userPrincipal.toString();
+        }
 
-        UserProfile userProfile = userRepository.getById(userPrincipal.getId());
+        UserProfile userProfile = userRepository.findByEmail(username).get();
         model.addAttribute("userProfile", userProfile);
 
         List<ItemProfile> items = itemRepository.findAllByOwnerIs(userProfile.getEmail());
