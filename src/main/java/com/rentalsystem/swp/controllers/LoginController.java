@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 
 @Controller
-@SessionAttributes("userProfile")
 public class LoginController {
 
     @Autowired
@@ -63,7 +62,7 @@ public class LoginController {
 
         model.addAttribute("userProfile", (UserProfile)userRepository.getById(userPrincipal.getId()));
         String a = "0";
-        return "profile";
+        return "redirect:/profile";
 
     }
 
