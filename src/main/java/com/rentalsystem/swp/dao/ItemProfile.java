@@ -25,4 +25,28 @@ public class ItemProfile {
         this.category = category;
         this.owner = owner;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getTimeSlots() {
+        return timeSlots;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
 }

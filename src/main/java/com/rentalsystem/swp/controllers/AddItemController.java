@@ -3,10 +3,14 @@ package com.rentalsystem.swp.controllers;
 import com.rentalsystem.swp.dao.ItemProfile;
 import com.rentalsystem.swp.POSTResponds.ItemProfileData;
 import com.rentalsystem.swp.Repositories.ItemRepository;
+import com.rentalsystem.swp.security.ParserToken;
+import com.rentalsystem.swp.security.TokenAuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class AddItemController {
@@ -24,13 +28,19 @@ public class AddItemController {
 
 
     @RequestMapping(value = "/additem", method = RequestMethod.GET)
-    public String showItem(Model model){
+    public String showItem(Model model, HttpServletRequest request){
+        ParserToken token = TokenAuthenticationService.getAuthentication(request);
+        if(token == null) return "login";
+
         model.addAttribute("itemProfileData", new ItemProfileData());
         return "additem";
     }
 
     @RequestMapping(value = "/additem", method = RequestMethod.POST)
-    public String addNewItem(@ModelAttribute("itemProfileData") ItemProfileData itemProfileData, Model model){
+    public String addNewItem(@ModelAttribute("itemProfileData") ItemProfileData itemProfileData, Model model, HttpServletRequest request){
+        ParserToken token = TokenAuthenticationService.getAuthentication(request);
+        if(token == null) return "login";
+
         model.addAttribute("ItemProfileData",  itemProfileData);
         ItemProfile item = new ItemProfile(itemProfileData.getName(), itemProfileData.getDescription(),
                                             itemProfileData.getTimeSlots(),itemProfileData.getCategory(), itemProfileData.getOwner());

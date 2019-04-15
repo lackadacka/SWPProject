@@ -29,6 +29,7 @@ public class MainController {
     public String showCatalog(Model model, HttpServletRequest request) {
         ParserToken token = TokenAuthenticationService.getAuthentication(request);
         if(token == null) return "login";
+
         List<ItemProfile> list = itemRepository.findAll();
         Integer id = 0;
         model.addAttribute("items", list);
@@ -37,7 +38,10 @@ public class MainController {
     }
 
     @RequestMapping(value = "/main", method = RequestMethod.POST)
-    public String showCatalog(@ModelAttribute("id") Integer id, Model model) {
+    public String showCatalog(@ModelAttribute("id") Integer id, Model model, HttpServletRequest request) {
+        ParserToken token = TokenAuthenticationService.getAuthentication(request);
+        if(token == null) return "login";
+
         model.addAttribute("id", id);
 
         ItemProfile itemProfile = itemRepository.getOne(id);
