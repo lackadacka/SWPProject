@@ -1,7 +1,7 @@
 package com.rentalsystem.swp.controllers;
 
-import com.rentalsystem.swp.Repositories.ItemRepository;
-import com.rentalsystem.swp.Repositories.UserRepository;
+import com.rentalsystem.swp.repositories.ItemRepository;
+import com.rentalsystem.swp.repositories.UserRepository;
 import com.rentalsystem.swp.dao.ItemProfile;
 import com.rentalsystem.swp.dao.UserProfile;
 import org.springframework.stereotype.Controller;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
 import java.util.Optional;
 
 @Controller

@@ -1,6 +1,6 @@
 package com.rentalsystem.swp.services;
 
-import com.rentalsystem.swp.Repositories.UserRepository;
+import com.rentalsystem.swp.repositories.UserRepository;
 import com.rentalsystem.swp.models.UserProfile;
 import com.rentalsystem.swp.models.UserProfileDetails;
 import org.springframework.beans.factory.annotation.Autowired;

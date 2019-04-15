@@ -1,4 +1,4 @@
-package com.rentalsystem.swp.Repositories;
+package com.rentalsystem.swp.repositories;
 
 import com.rentalsystem.swp.models.UserProfile;
 import org.springframework.data.jpa.repository.JpaRepository;

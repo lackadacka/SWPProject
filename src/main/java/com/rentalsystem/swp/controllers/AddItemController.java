@@ -2,7 +2,7 @@ package com.rentalsystem.swp.controllers;
 
 import com.rentalsystem.swp.models.ItemProfile;
 import com.rentalsystem.swp.POSTResponds.ItemProfileData;
-import com.rentalsystem.swp.Repositories.ItemRepository;
+import com.rentalsystem.swp.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
