@@ -38,7 +38,7 @@
             <#--                <input type="text" placeholder="@Category" value="" name="category">-->
 
 
-            <input class="btn" type="submit" placeholder="" value="Add new item" name="submit">
+            <input class="btn" type="submit" placeholder="" value="OK" name="submit">
         </form>
     </div>
 </#macro>

@@ -46,7 +46,7 @@ public class EditItemController {
             model.addAttribute("auth", "true");
             model.addAttribute("userProfile", userProfile);
 
-            return "forward:/edititem";
+            return "edititem";
         }
     }
 
@@ -87,18 +87,16 @@ public class EditItemController {
             return "forward:/main";
         }
         else {
-            UserProfile userProfile = userRepository.findByEmail(test).get();
 
             model.addAttribute("auth", "true");
-            model.addAttribute("ItemProfile", itemProfile);
-            model.addAttribute("userProfile", userProfile);
+            model.addAttribute("itemProfile", itemProfile);
 
             itemProfile.setOwner(test);
 
             itemRepository.deleteById(id);
             itemRepository.save(itemProfile);
 
-            return "forward:/profile";
+            return "redirect:/profile";
         }
     }
 

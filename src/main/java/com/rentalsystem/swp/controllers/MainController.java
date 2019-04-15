@@ -34,7 +34,7 @@ public class MainController {
         Integer id = 0;
         model.addAttribute("items", list);
         model.addAttribute("id", id);
-        model.addAttribute("auth", Boolean.toString(test == null));
+        model.addAttribute("auth", Boolean.toString(test != null));
 
         return "main";
     }
@@ -45,7 +45,7 @@ public class MainController {
         String test = (String) session.getAttribute("currentUser");
 
         model.addAttribute("id", id);
-        model.addAttribute("auth", Boolean.toString(test == null));
+        model.addAttribute("auth", Boolean.toString(test != null));
 
         ItemProfile itemProfile = itemRepository.getOne(id);
         model.addAttribute("itemProfile", itemProfile);

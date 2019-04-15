@@ -9,6 +9,8 @@
         <div class="timeslots">
             <h1>Possible Timeslots:</h1>
             <h2>${itemProfile.timeSlots}</h2>
+            <h1>Price per timeslot</h1>
+            <h2>${itemProfile.getPrice()}</h2>
         </div>
         <div class="contacts">
             <h1>Contacts:</h1>
