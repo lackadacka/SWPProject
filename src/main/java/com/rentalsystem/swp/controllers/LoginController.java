@@ -4,7 +4,9 @@ import com.rentalsystem.swp.POSTResponds.LoginData;
 import com.rentalsystem.swp.POSTResponds.UserProfileData;
 import com.rentalsystem.swp.Repositories.ItemRepository;
 import com.rentalsystem.swp.Repositories.UserRepository;
+import com.rentalsystem.swp.models.UserProfile;
 import com.rentalsystem.swp.security.JwtTokenProvider;
+import com.rentalsystem.swp.security.UserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -18,7 +20,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 
 @Controller
-@SessionAttributes("loginData")
+@SessionAttributes("userProfile")
 public class LoginController {
 
     @Autowired
@@ -55,6 +57,11 @@ public class LoginController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String jwt = tokenProvider.generateToken(authentication);
+
+        UserPrincipal userPrincipal = (UserPrincipal) SecurityContextHolder.getContext()
+                .getAuthentication().getPrincipal();
+
+        model.addAttribute("userProfile", (UserProfile)userRepository.getById(userPrincipal.getId()));
         String a = "0";
         return "profile";
 

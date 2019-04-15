@@ -19,7 +19,7 @@ import java.util.Optional;
 
 
 @Controller
-@SessionAttributes("loginData")
+@SessionAttributes("userProfile")
 public class ProfilePage {
 
     private UserRepository userRepository;
