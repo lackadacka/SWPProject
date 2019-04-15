@@ -1,14 +1,13 @@
 package com.rentalsystem.swp.controllers;
 
 import com.rentalsystem.swp.Repositories.ItemRepository;
-import com.rentalsystem.swp.dao.ItemProfile;
+import com.rentalsystem.swp.models.ItemProfile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.HashMap;
 import java.util.List;
 
 @Controller

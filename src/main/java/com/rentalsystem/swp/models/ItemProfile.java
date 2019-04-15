@@ -1,4 +1,4 @@
-package com.rentalsystem.swp.dao;
+package com.rentalsystem.swp.models;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

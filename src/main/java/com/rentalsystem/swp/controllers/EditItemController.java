@@ -3,9 +3,9 @@ package com.rentalsystem.swp.controllers;
 
 import com.rentalsystem.swp.POSTResponds.LoginData;
 import com.rentalsystem.swp.Repositories.UserRepository;
-import com.rentalsystem.swp.dao.ItemProfile;
+import com.rentalsystem.swp.models.ItemProfile;
 import com.rentalsystem.swp.Repositories.ItemRepository;
-import com.rentalsystem.swp.dao.UserProfile;
+import com.rentalsystem.swp.models.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,7 +43,7 @@ public class EditItemController {
         model.addAttribute("id", id);
         UserProfile userProfile = userRepository.findByEmail(itemRepository.findById(id).get().getOwner()).get();
         LoginData loginData = new LoginData();
-        loginData.setLogin(userProfile.getEmail());
+        loginData.setEmail(userProfile.getEmail());
         loginData.setPassword(userProfile.getPassword());
         model.addAttribute("loginData", loginData);
         itemRepository.deleteById(id);

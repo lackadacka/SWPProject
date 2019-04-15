@@ -3,10 +3,9 @@ package com.rentalsystem.swp.controllers;
 import com.rentalsystem.swp.POSTResponds.LoginData;
 import com.rentalsystem.swp.Repositories.ItemRepository;
 import com.rentalsystem.swp.Repositories.UserRepository;
-import com.rentalsystem.swp.dao.ItemProfile;
-import com.rentalsystem.swp.dao.UserProfile;
+import com.rentalsystem.swp.models.ItemProfile;
+import com.rentalsystem.swp.models.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -41,9 +40,9 @@ public class ProfilePage {
         model.addAttribute("loginData", loginData);
         UserProfile userProfile;
 
-        if(userRepository.existsByEmail(loginData.getLogin())) {
+        if(userRepository.existsByEmail(loginData.getEmail())) {
 
-            Optional<UserProfile> expected = userRepository.findByEmail(loginData.getLogin());
+            Optional<UserProfile> expected = userRepository.findByEmail(loginData.getEmail());
             userProfile = expected.get();
 
             if (userProfile.getPassword().equals(loginData.getPassword())) {

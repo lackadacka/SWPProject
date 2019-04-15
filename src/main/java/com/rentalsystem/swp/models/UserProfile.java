@@ -1,4 +1,4 @@
-package com.rentalsystem.swp.dao;
+package com.rentalsystem.swp.models;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,6 +20,7 @@ public class UserProfile {
     private String email;
     private String password;
     private String phoneNumber;
+
 
     public UserProfile(@NotNull String firstName, @NotNull String lastName, String email, String password, String phoneNumber) {
         this.firstName = firstName;

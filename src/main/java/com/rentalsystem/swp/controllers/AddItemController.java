@@ -1,6 +1,6 @@
 package com.rentalsystem.swp.controllers;
 
-import com.rentalsystem.swp.dao.ItemProfile;
+import com.rentalsystem.swp.models.ItemProfile;
 import com.rentalsystem.swp.POSTResponds.ItemProfileData;
 import com.rentalsystem.swp.Repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
