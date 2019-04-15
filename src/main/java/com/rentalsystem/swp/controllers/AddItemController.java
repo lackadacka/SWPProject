@@ -31,6 +31,9 @@ public class AddItemController {
         if (currentUser == null) {
             return "redirect:/login";
         }
+        else {
+            model.addAttribute("auth", "true");
+        }
         model.addAttribute("itemProfileData", new ItemProfileData());
         return "additem";
     }
@@ -42,6 +45,7 @@ public class AddItemController {
         if (currentUser == null) {
             return "redirect:/login";
         }
+        model.addAttribute("auth", "true");
         model.addAttribute("ItemProfileData",  itemProfileData);
         ItemProfile item = new ItemProfile(itemProfileData.getName(), itemProfileData.getDescription(),
                                             itemProfileData.getTimeSlots(), itemProfileData.getPrice(),
@@ -53,7 +57,7 @@ public class AddItemController {
 //        newItem.setCategory(item.getCategory()).;
 
         itemRepository.save(item);
-        return "login";
+        return "redirect:/profile";
     }
 
 

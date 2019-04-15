@@ -38,9 +38,14 @@ public class ProfilePage {
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public String showProfile(Model model, HttpSession session) {
-        String username = (String)session.getAttribute("currentUser");
-
-        UserProfile userProfile = userRepository.findByEmail(username).get();
+        String currentUser = (String)session.getAttribute("currentUser");
+        if (currentUser == null) {
+            return "redirect:/login";
+        }
+        else {
+            model.addAttribute("auth", "true");
+        }
+        UserProfile userProfile = userRepository.findByEmail(currentUser).get();
         model.addAttribute("userProfile", userProfile);
 
         List<ItemProfile> items = itemRepository.findAllByOwnerIs(userProfile.getEmail());
@@ -54,9 +59,15 @@ public class ProfilePage {
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.POST)
-    public String showAd(@ModelAttribute("id") Integer id, Model model) {
+    public String showAd(@ModelAttribute("id") Integer id, Model model, HttpSession session) {
         model.addAttribute("id", id);
-
+        String currentUser = (String)session.getAttribute("currentUser");
+        if (currentUser == null) {
+            return "redirect:/login";
+        }
+        else {
+            model.addAttribute("auth", "true");
+        }
         ItemProfile itemProfile = itemRepository.getOne(id);
         model.addAttribute("itemProfile", itemProfile);
         return "profile";
