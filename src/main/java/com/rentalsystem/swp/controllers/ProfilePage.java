@@ -5,7 +5,9 @@ import com.rentalsystem.swp.Repositories.ItemRepository;
 import com.rentalsystem.swp.Repositories.UserRepository;
 import com.rentalsystem.swp.models.ItemProfile;
 import com.rentalsystem.swp.models.UserProfile;
+import com.rentalsystem.swp.security.UserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,7 +21,6 @@ import java.util.Optional;
 
 
 @Controller
-@SessionAttributes("userProfile")
 public class ProfilePage {
 
     private UserRepository userRepository;
@@ -34,8 +35,11 @@ public class ProfilePage {
 
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
-    public String showProfile(@ModelAttribute("userProfile") UserProfile userProfile, Model model) {
+    public String showProfile(Model model) {
 
+        UserPrincipal userPrincipal = (UserPrincipal) SecurityContextHolder.getContext()
+                .getAuthentication().getPrincipal();
+        UserProfile userProfile = userRepository.getById(userPrincipal.getId());
 
         model.addAttribute("userProfile", userProfile);
 
