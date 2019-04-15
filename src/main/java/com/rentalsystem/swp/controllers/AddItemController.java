@@ -27,16 +27,25 @@ public class AddItemController {
 
     @RequestMapping(value = "/additem", method = RequestMethod.GET)
     public String showItem(Model model, HttpSession session){
+        String currentUser = (String) session.getAttribute("currentUser");
+        if (currentUser == null) {
+            return "redirect:/login";
+        }
         model.addAttribute("itemProfileData", new ItemProfileData());
         return "additem";
     }
 
     @RequestMapping(value = "/additem", method = RequestMethod.POST)
-    public String addNewItem(@ModelAttribute("itemProfileData") ItemProfileData itemProfileData, Model model){
+    public String addNewItem(@ModelAttribute("itemProfileData") ItemProfileData itemProfileData,
+                             Model model, HttpSession session){
+        String currentUser = (String)session.getAttribute("currentUser");
+        if (currentUser == null) {
+            return "redirect:/login";
+        }
         model.addAttribute("ItemProfileData",  itemProfileData);
         ItemProfile item = new ItemProfile(itemProfileData.getName(), itemProfileData.getDescription(),
                                             itemProfileData.getTimeSlots(), itemProfileData.getPrice(),
-                                            itemProfileData.getCategory(), itemProfileData.getOwner());
+                                            itemProfileData.getCategory(), currentUser);
 //        ItemProfile newItem = new ItemProfile();
 //        newItem.setName(item.getName());
 //        newItem.setDescription(item.getDescription());

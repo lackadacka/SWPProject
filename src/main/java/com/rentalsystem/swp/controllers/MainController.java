@@ -33,19 +33,15 @@ public class MainController {
         String auth = "true";
         UserProfile userProfile = null;
 
+        List<ItemProfile> list = itemRepository.findAll();
+        Integer id = 0;
+        model.addAttribute("items", list);
+        model.addAttribute("id", id);
+
         if (test == null)
             auth = "false";
-        else {
-            userProfile = userRepository.findByEmail(test).get();
-            List<ItemProfile> list = itemRepository.findAll();
-            Integer id = 0;
-            model.addAttribute("items", list);
-            model.addAttribute("id", id);
-            return "main";
-        }
 
         model.addAttribute("auth", auth);
-        model.addAttribute("userProfile", userProfile);
 
         return "main";
     }
