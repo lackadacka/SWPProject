@@ -39,8 +39,8 @@ public class ProfilePage {
 
         UserPrincipal userPrincipal = (UserPrincipal) SecurityContextHolder.getContext()
                 .getAuthentication().getPrincipal();
-        UserProfile userProfile = userRepository.getById(userPrincipal.getId());
 
+        UserProfile userProfile = userRepository.getById(userPrincipal.getId());
         model.addAttribute("userProfile", userProfile);
 
         List<ItemProfile> items = itemRepository.findAllByOwnerIs(userProfile.getEmail());

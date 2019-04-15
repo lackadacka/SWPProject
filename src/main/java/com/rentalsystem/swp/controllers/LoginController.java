@@ -12,7 +12,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +20,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 
 @Controller
+@SessionAttributes("userProfile")
 public class LoginController {
 
     @Autowired
@@ -58,16 +58,12 @@ public class LoginController {
 
         String jwt = tokenProvider.generateToken(authentication);
 
-        String username;
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (principal instanceof UserDetails) {
-            username = ((UserDetails)principal).getUsername();
-        } else {
-            username = principal.toString();
-        }
-        model.addAttribute("userProfile", userRepository.findByEmail(username).get());
+        UserPrincipal userPrincipal = (UserPrincipal) SecurityContextHolder.getContext()
+                .getAuthentication().getPrincipal();
 
-        return "redirect:/profile";
+        model.addAttribute("userProfile", (UserProfile)userRepository.getById(userPrincipal.getId()));
+        String a = "0";
+        return "profile";
 
     }
 

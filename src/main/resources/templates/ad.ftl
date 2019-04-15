@@ -17,6 +17,9 @@
             <h2>${userProfile.email}</h2>
         </div>
         <#--<a class="b1" href="/edititem">EDIT INFORMATION</a>-->
+        <#if currentUser.getEmail() == itemProfile.getOwner()>
+
+        </#if>
         <form action="/edititem" method="get">
             <input type="submit" class="btn" value="EDIT ADVERT">
         </form>
