@@ -33,7 +33,7 @@ public class EditItemController {
 
         if (test == null){
             model.addAttribute("auth", "false");
-            return "main";
+            return "forward:/main";
         }
         else {
             UserProfile userProfile = userRepository.findByEmail(test).get();
@@ -45,8 +45,9 @@ public class EditItemController {
             model.addAttribute("itemProfile", itemProfile);
             model.addAttribute("auth", "true");
             model.addAttribute("userProfile", userProfile);
+
+            return "forward:/edititem";
         }
-        return "edititem";
     }
 
 
@@ -59,7 +60,7 @@ public class EditItemController {
 
         if (test == null) {
             model.addAttribute("auth", "false");
-            return "main";
+            return "forward:/main";
         }
         else {
 
@@ -70,8 +71,9 @@ public class EditItemController {
             model.addAttribute("userProfile", userProfile);
 
             itemRepository.deleteById(id);
+
+            return "forward:/profile";
         }
-        return "forward:/profile";
     }
 
     @RequestMapping(value = "/edititem", method = RequestMethod.POST)
@@ -82,7 +84,7 @@ public class EditItemController {
 
         if (test == null) {
             model.addAttribute("auth", "false");
-            return "main";
+            return "forward:/main";
         }
         else {
             UserProfile userProfile = userRepository.findByEmail(test).get();
@@ -91,10 +93,13 @@ public class EditItemController {
             model.addAttribute("ItemProfile", itemProfile);
             model.addAttribute("userProfile", userProfile);
 
+            itemProfile.setOwner(test);
+
             itemRepository.deleteById(id);
             itemRepository.save(itemProfile);
+
+            return "forward:/profile";
         }
-        return "profile";
     }
 
 }
