@@ -30,18 +30,11 @@ public class MainController {
 
         String test = (String) session.getAttribute("currentUser");
 
-        String auth = "true";
-        UserProfile userProfile = null;
-
         List<ItemProfile> list = itemRepository.findAll();
         Integer id = 0;
         model.addAttribute("items", list);
         model.addAttribute("id", id);
-
-        if (test == null)
-            auth = "false";
-
-        model.addAttribute("auth", auth);
+        model.addAttribute("auth", Boolean.toString(test == null));
 
         return "main";
     }
