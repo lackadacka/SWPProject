@@ -53,6 +53,7 @@ public class EditItemController {
     @RequestMapping(value = "/edititem", method = RequestMethod.POST)
     public String editItem(@ModelAttribute("id") Integer id,
             @ModelAttribute("itemProfile") ItemProfile itemProfile, Model model){
+        itemProfile.setOwner(itemRepository.findById(id).get().getOwner());
         model.addAttribute("ItemProfile",  itemProfile);
         itemRepository.deleteById(id);
 //        ItemProfile newItem = new ItemProfile();
