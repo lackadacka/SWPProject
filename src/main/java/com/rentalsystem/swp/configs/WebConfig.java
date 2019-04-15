@@ -86,7 +86,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.css",
                         "/**/*.js")
                 .permitAll()
-                .antMatchers("/login/**", "/signup/**", "/profile/**")
+                .antMatchers("/**", "/signup/**", "/profile/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

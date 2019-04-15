@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,16 +37,8 @@ public class ProfilePage {
 
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
-    public String showProfile(Model model) {
-        String username;
-        Object userPrincipal = SecurityContextHolder.getContext()
-                .getAuthentication().getPrincipal();
-        if (userPrincipal instanceof UserDetails) {
-            username = ((UserDetails) userPrincipal).getUsername();
-        }
-        else {
-            username = userPrincipal.toString();
-        }
+    public String showProfile(Model model, HttpSession session) {
+        String username = (String)session.getAttribute("currentUser");
 
         UserProfile userProfile = userRepository.findByEmail(username).get();
         model.addAttribute("userProfile", userProfile);

@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import javax.servlet.http.HttpSession;
+
 
 @Controller
 public class LoginController {
@@ -39,12 +41,13 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String showSignup(Model model){
+    public String showSignup(Model model, HttpSession session){
+        String test = (String) session.getAttribute("currentUser");
         model.addAttribute("loginData", new LoginData());
         return "login";
     }
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String showLogin(Model model, LoginData loginData) {
+    public String showLogin(Model model, LoginData loginData, HttpSession session) {
         model.addAttribute("loginData", new LoginData());
 
         Authentication authentication = authenticationManager.authenticate(
@@ -65,7 +68,7 @@ public class LoginController {
         } else {
             username = principal.toString();
         }
-        model.addAttribute("userProfile", userRepository.findByEmail(username));
+        session.setAttribute("currentUser", username);
 
         return "redirect:/profile";
 

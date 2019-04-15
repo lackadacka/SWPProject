@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class AddItemController {
     @Autowired
@@ -24,7 +26,7 @@ public class AddItemController {
 
 
     @RequestMapping(value = "/additem", method = RequestMethod.GET)
-    public String showItem(Model model){
+    public String showItem(Model model, HttpSession session){
         model.addAttribute("itemProfileData", new ItemProfileData());
         return "additem";
     }
