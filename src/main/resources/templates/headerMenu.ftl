@@ -28,8 +28,8 @@
             profile = "Sign In"
             sign_ref = "/signup"
             sign = "Sign Up">
-
         </#if>
+
         <ul class="menu">
             <a href="${profile_ref}">${profile}</a>
             <a href="${sign_ref}">${sign}</a>
