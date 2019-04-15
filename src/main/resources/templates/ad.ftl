@@ -1,7 +1,7 @@
 <#import "headerMenu.ftl" as menu>
 
 
-<@menu.menu signed_in=false title="Advertising">
+<@menu.menu signed_in="${auth}" title="Advertising">
     <div class="ad">
         <h1>${itemProfile.name}</h1>
         <h3>${itemProfile.category}</h3>
@@ -17,14 +17,14 @@
             <h2>${userProfile.email}</h2>
         </div>
         <#--<a class="b1" href="/edititem">EDIT INFORMATION</a>-->
-        <#if currentUser.getEmail() == itemProfile.getOwner()>
-
+        <#if currentUser?? && currentUser = itemProfile.getOwner()>
+            <form action="/edititem" method="get">
+                <input type="submit" class="btn" value="EDIT ADVERT">
+            </form>
+            <form action="/delete" method="get">
+                <input type="submit" class="btn" value="DELETE ADVERT">
+            </form>
         </#if>
-        <form action="/edititem" method="get">
-            <input type="submit" class="btn" value="EDIT ADVERT">
-        </form>
-        <form action="/delete" method="get">
-            <input type="submit" class="btn" value="DELETE ADVERT">
-        </form>
+
     </div>
 </@menu.menu>

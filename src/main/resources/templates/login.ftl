@@ -3,7 +3,7 @@
 
 
 
-<@menu.menu signed_in=false title="Sign In">
+<@menu.menu signed_in="${auth}" title="Sign In">
     <div class="container">
         <h1>LOG IN</h1>
         <form action="/login" method="post">
