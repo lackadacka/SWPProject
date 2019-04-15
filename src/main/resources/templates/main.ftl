@@ -1,8 +1,6 @@
 <#import "headerMenu.ftl" as menu>
 <#import "item.ftl" as i>
-<#assign
-    sign = false>
-<@menu.menu signed_in=sign title="Main Page">
+<@menu.menu signed_in="${auth}" title="Main Page">
     <form action="/main" method="post">
         <#list items as item>
             <#assign

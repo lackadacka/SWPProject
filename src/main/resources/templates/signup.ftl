@@ -1,6 +1,6 @@
 <#import "headerMenu.ftl" as menu>
 
-<@menu.menu signed_in=false title="Sign Up">
+<@menu.menu signed_in="${auth}" title="Sign Up">
     <div class="cont">
         <h1>SIGN UP</h1>
         <form action="/signup" method="post">

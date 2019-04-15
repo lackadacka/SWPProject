@@ -1,7 +1,7 @@
 <#import "headerMenu.ftl" as menu>
 <#import "item.ftl" as i>
 
-<@menu.menu signed_in=true title="My Profile">
+<@menu.menu signed_in="${auth}" title="My Profile">
     <div class="profile">
         <h1>${userProfile.lastName} ${userProfile.firstName}</h1>
         <h2>${userProfile.email}</h2>

@@ -16,7 +16,7 @@
         <label for="chk" class="show-menu-bar">
             <i class="fas fa-bars"></i>
         </label>
-        <#if signed_in>
+        <#if signed_in="true">
             <#assign
                 profile_ref = "/profile"
                 profile = "My Profile"

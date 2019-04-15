@@ -41,8 +41,7 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String showSignup(Model model, HttpSession session){
-        String test = (String) session.getAttribute("currentUser");
+    public String showSignup(Model model){
         model.addAttribute("loginData", new LoginData());
         return "login";
     }
