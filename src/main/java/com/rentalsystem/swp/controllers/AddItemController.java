@@ -50,12 +50,6 @@ public class AddItemController {
         ItemProfile item = new ItemProfile(itemProfileData.getName(), itemProfileData.getDescription(),
                                             itemProfileData.getTimeSlots(), itemProfileData.getPrice(),
                                             itemProfileData.getCategory(), currentUser);
-//        ItemProfile newItem = new ItemProfile();
-//        newItem.setName(item.getName());
-//        newItem.setDescription(item.getDescription());
-//        newItem.setTimeSlots(item.getTimeSlots());
-//        newItem.setCategory(item.getCategory()).;
-
         itemRepository.save(item);
         return "redirect:/profile";
     }
