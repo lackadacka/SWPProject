@@ -1,7 +1,7 @@
 <#import "headerMenu.ftl" as menu>
 
 <@menu.menu signed_in="${auth}" title="Sign Up">
-    <div class="cont">
+    <div class="container">
         <h1>SIGN UP</h1>
         <form action="/signup" method="post">
             <div class="tbox">

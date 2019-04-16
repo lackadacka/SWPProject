@@ -35,7 +35,9 @@
                 <option class = "opt" value="Office" <#if category="Office">selected="selected"</#if>>Office</option>
                 <option class = "opt" value="Entertainment" <#if category="Entertainment">selected="selected"</#if>>Entertainment</option>
             </select>
-            <input type="file" name="file">
+            <div class="file">
+                <input type="file" name="file">
+            </div>
             <#--                <input type="text" placeholder="@Category" value="" name="category">-->
 
 

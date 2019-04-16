@@ -70,7 +70,11 @@
     margin: 0;
     font-family: "Montserrat", sans-serif;
 }
-
+.main{
+    width: 600px;
+    position: absolute;
+    left: 22%;
+}
 @media screen and (max-width: 800px){
     .show-menu-bar,.hide-menu-bar{
         display: block;
@@ -117,6 +121,13 @@
     text-align: left;
     z-index: 1;
 }
+.list{
+    width: 600px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 680px;
+}
 .profile h1{
     font-family: "Montserrat", sans-serif;
     font-size: 70px;
@@ -134,25 +145,23 @@
 }
 .item{
     display: block;
-    width: 700px;
+    width: auto;
     background: lightblue;
     border: #333333;
     border-radius: 10px;
     position: center;
     text-decoration: none;
     transition: 0.5s;
-    padding: 10px;
 }
 .ad{
     width: 600px;
-    height: 700px;
     background: lightblue;
     position: absolute;
     border-radius: 20px;
     margin-top: 70px;
     margin-bottom: 30px;
     padding: 0 30px;
-    top: 50%;
+    top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: black;
@@ -207,7 +216,7 @@
     text-decoration: none;
     display: block;
     transition: 0.5s;
-    width: 700px;
+    width: inherit;
     position: center;
     margin: 7px;
 }
@@ -261,7 +270,6 @@
 }
 .container{
     width: 360px;
-    height: 500px;
     background: #34495e;
     position: absolute;
     border-radius: 20px;
@@ -337,6 +345,7 @@
     height: 40px;
     border-radius: 10px;
     margin: 14px auto;
+    margin-bottom: 70px;
     display: block;
     font-family: "Montserrat", sans-serif;
     font-style: normal;
@@ -362,10 +371,16 @@
     transition: 0.4s all;
     border-radius: 10px;
 }
+.file{
+    margin: 10px;
+}
+.sel{
+    text-align: center;
+}
 .b2{
     position: absolute;
     display: block;
-    bottom: 30px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     width: 260px;

@@ -1,6 +1,7 @@
 <#import "headerMenu.ftl" as menu>
 <#import "item.ftl" as i>
 <@menu.menu signed_in="${auth}" title="Main Page">
+    <div class="main">
     <form action="/main" method="post">
         <#list items as item>
             <#assign
@@ -16,4 +17,5 @@
             </a>
         </#list>
     </form>
+    </div>
 </@menu.menu>

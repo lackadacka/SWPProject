@@ -8,13 +8,8 @@
         <h2>${userProfile.phoneNumber}</h2>
         <a class="b4" href="/edit_user">EDIT INFORMATION</a>
         <a class="b2" href="/additem">ADD NEW ITEM</a>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+    </div>
+    <div class="list">
         <form action="/profile" method="post">
             <#list items as item>
                 <#assign
