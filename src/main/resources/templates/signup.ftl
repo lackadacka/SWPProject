@@ -5,19 +5,19 @@
         <h1>SIGN UP</h1>
         <form action="/signup" method="post">
             <div class="tbox">
-                <input type="text" placeholder="@FirstName" value="" name="firstName">
+                <input type="text" placeholder="@FirstName" required value="" name="firstName">
             </div>
             <div class="tbox">
-                <input type="text" placeholder="@LastName" value="" name="lastName">
+                <input type="text" placeholder="@LastName" required value="" name="lastName">
             </div>
             <div class="tbox">
-                <input type="email" placeholder="@Email" value="" name="email">
+                <input type="email" placeholder="@Email" required value="" name="email">
             </div>
             <div class="tbox">
-                <input type="password" placeholder="@Password" value="" name="password">
+                <input type="password" placeholder="@Password" required value="" name="password">
             </div>
             <div class="tbox">
-                <input type="tel" placeholder="PhoneNumber" value="" name="phoneNumber">
+                <input type="tel" placeholder="PhoneNumber" required value="" name="phoneNumber">
             </div>
 
 
