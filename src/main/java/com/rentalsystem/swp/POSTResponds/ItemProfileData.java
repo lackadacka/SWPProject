@@ -1,6 +1,7 @@
 package com.rentalsystem.swp.POSTResponds;
 
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
 @Data
 public class ItemProfileData {
@@ -11,4 +12,5 @@ public class ItemProfileData {
     private int price;
     private String category;
     private String owner;
+    private MultipartFile file;
 }

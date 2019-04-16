@@ -29,6 +29,7 @@ public class MainController {
     public String showCatalog(Model model, HttpSession session) {
 
         String test = (String) session.getAttribute("currentUser");
+        session.setAttribute("uploadPath", System.getProperty("user.dir") + "//src//main//resources//img//");
 
         List<ItemProfile> list = itemRepository.findAll();
         Integer id = 0;

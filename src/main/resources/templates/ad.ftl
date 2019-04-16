@@ -3,6 +3,9 @@
 
 <@menu.menu signed_in="${auth}" title="Advertising">
     <div class="ad">
+        <#if itemProfile.getFile()??>
+            <img src="/img/${itemProfile.getFile()}" class="image">
+        </#if>
         <h1>${itemProfile.name}</h1>
         <h3>${itemProfile.category}</h3>
         <h2>${itemProfile.description}</h2>

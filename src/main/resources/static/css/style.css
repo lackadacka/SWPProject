@@ -105,6 +105,10 @@
         right: 0;
     }
 }
+.image{
+    max-width: 500px;
+    max-height: 300px;
+}
 .profile{
     width: 600px;
     background: #34495e;

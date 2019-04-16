@@ -17,6 +17,7 @@ public class AdController {
 
     private final ItemRepository itemRepository;
     private final UserRepository userRepository;
+    private String uploadPath = System.getProperty("user.dir") + "/src/main/resources/img/";
 
     public AdController(ItemRepository itemRepository, UserRepository userRepository) {
         this.itemRepository = itemRepository;
@@ -38,6 +39,7 @@ public class AdController {
             model.addAttribute("currentUser", currentUser);
         }
         model.addAttribute("id", id);
+        model.addAttribute("uploadPath", uploadPath);
         Optional<ItemProfile> item = itemRepository.findById(id);
         ItemProfile itemProfile  = item.get();
         Optional<UserProfile> user = userRepository.findByEmail(itemProfile.getOwner());
