@@ -380,7 +380,7 @@ option{
 .search .btn,
 .search .tbox{
     float: left;
-    width: 100px;
-    margin: 10px;
+    width: 140px;
+    margin: 3px;
     height: 30px;
 }

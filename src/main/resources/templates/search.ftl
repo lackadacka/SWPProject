@@ -27,7 +27,7 @@
             <option class="opt" value="Per month">Per Month</option>
             <option class="opt" value="Per year">Per Year</option>
         </select>
-        <input class="btn" type="submit" placeholder="" value="SEARCH" name="submit">
+        <input class="btn" type="submit" placeholder="" value="Search" name="submit">
     </form>
 </div>
 </#macro>
