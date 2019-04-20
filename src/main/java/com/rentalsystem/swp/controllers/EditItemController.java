@@ -108,7 +108,7 @@ public class EditItemController {
             model.addAttribute("auth", "true");
             model.addAttribute("itemProfileData", itemProfile);
             String filename = null;
-            if (itemProfile.getFile() != null) {
+            if (!itemProfile.getFile().getOriginalFilename().equals("")) {
                 filename = UUID.randomUUID().toString() + "_" + itemProfile.getFile().getOriginalFilename();
                 Path path = Paths.get(uploadPath + filename);
                 byte[] bytes = itemProfile.getFile().getBytes();
