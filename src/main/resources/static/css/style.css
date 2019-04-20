@@ -64,17 +64,6 @@
     z-index: -1111;
 
 }
-.content{
-    padding: 0 20px;
-    background: grey;
-    margin: 0;
-    font-family: "Montserrat", sans-serif;
-}
-.main{
-    width: 600px;
-    position: absolute;
-    left: 22%;
-}
 @media screen and (max-width: 800px){
     .show-menu-bar,.hide-menu-bar{
         display: block;
@@ -105,77 +94,59 @@
         right: 0;
     }
 }
+
 .image{
-    max-width: 500px;
-    max-height: 300px;
+    max-width: 250px;
+    min-width: 125px;
+    max-height: 150px;
+    min-height: 75px;
 }
 .profile{
     width: 600px;
     background: #34495e;
-    position: absolute;
     border-radius: 20px;
-    margin-top: 70px;
-    margin-bottom: 30px;
-    padding: 30px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 30px auto 30px auto;
     color: black;
     text-align: left;
-    z-index: 1;
+    padding: 10px 30px;
 }
 .list{
     width: 600px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 680px;
+    margin-left: auto;
+    margin-right: auto;
 }
-.profile h1{
+.profile .name{
     font-family: "Montserrat", sans-serif;
     font-size: 70px;
     text-align: center;
     color: lightcyan;
     max-width: 90%;
-    margin-top: 50px;
 }
-.profile h2{
+.profile .info{
     font-family: "Montserrat", sans-serif;
     font-size: 30px;
     text-align: left;
     color: lightcyan;
-    margin: 15px auto;
-}
-.item{
-    display: block;
-    width: auto;
-    background: lightblue;
-    border: #333333;
-    border-radius: 10px;
-    position: center;
-    text-decoration: none;
-    transition: 0.5s;
 }
 .ad{
     width: 600px;
     background: lightblue;
-    position: absolute;
     border-radius: 20px;
-    margin-top: 70px;
-    margin-bottom: 30px;
-    padding: 0 30px;
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    padding: 30px 30px 10px 30px;
+    margin: 20px auto 30px auto;
     color: black;
     text-align: left;
     z-index: 1;
+}
+.ad .image{
+    margin-left: auto;
+    margin-right: auto;
 }
 .ad h1{
     font-family: "Montserrat", sans-serif;
     font-size: 50px;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .ad h2{
     font-family: "Montserrat", sans-serif;
@@ -223,33 +194,52 @@
     position: center;
     margin: 7px;
 }
+.item{
+     display: block;
+     width: auto;
+     height: 100px;
+     background: lightblue;
+     border: #333333;
+     border-radius: 10px;
+     position: center;
+     text-decoration: none;
+     transition: 0.5s;
+ }
 .item:hover{
     transform: scale(1.1);
 }
-.item h2{
-    font-family: "Montserrat", sans-serif;
-    font-size: 40px;
-    color: black;
-    text-decoration: none;
-    text-align: center;
-    margin: 15px;
-    padding: 20px 0;
+.item img{
+    max-height: 90px;
+    min-height: 60px;
+    max-width: 120px;
+    min-width: 80px;
+    float: left;
 }
-.item h1{
-    font-family: "Montserrat", sans-serif;
-    font-size: 15px;
-    color: black;
-    text-decoration: none;
-    text-align: center;
-    margin: 15px;
+.item text{
+    margin: 20px;
 }
-.item h4{
+.item .text h2{
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
     color: black;
     text-decoration: none;
-    text-align: right;
-    margin: 15px;
+    text-align: left;
+    margin-left: 20px;
+}
+.item .text h1{
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    color: black;
+    text-decoration: none;
+    text-align: left;
+    margin-left: 20px;
+}
+.item .text h4{
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    color: gray;
+    text-decoration: none;
+    margin: 20px;
 }
 .edit_btn{
     width: 130px;
@@ -274,42 +264,20 @@
 .container{
     width: 360px;
     background: #34495e;
-    position: absolute;
     border-radius: 20px;
-    margin-top: 100px;
-    margin-bottom: 30px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 20px auto 30px auto;
     color: black;
     text-align: center;
     z-index: 1;
+    padding-top: 50px;
+    padding-bottom: 20px;
 }
-.cont{
-    width: 360px;
-    height: 600px;
-    background: #34495e;
-    position: absolute;
-    border-radius: 20px;
-    margin-top: 100px;
-    margin-bottom: 30px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: black;
-    text-align: center;
-    z-index: -1;
+.container .btn{
+    margin-bottom: 70px;
 }
 .container h1{
     color: #ffffff;
     font-size: 40px;
-    margin-top: 90px;
-    margin-bottom: 60px;
-}
-.cont h1{
-    color: #ffffff;
-    font-size: 40px;
-    margin-top: 90px;
     margin-bottom: 60px;
 }
 .tbox{
@@ -320,16 +288,27 @@
     margin: 10px auto;
 
 }
-.sel{
+/*.sel{*/
+    /*width: 260px;*/
+    /*height:40px;*/
+    /*background: #f1f1f1b3;*/
+    /*border-radius: 10px;*/
+/*}*/
+.sel #opt{
+    background: #f1f1f1b3;
+}
+select{
     width: 260px;
     height:40px;
     background: #f1f1f1b3;
     border-radius: 10px;
-    justify-content: center;
-    font-family: "Montserrat", sans-serif;
-    font-size: 13px;
+    text-align: center;
 }
-.opt{
+select text{
+    text-align: center;
+    color: gray;
+}
+option{
     background: #f1f1f1b3;
 }
 .tbox input{
@@ -348,7 +327,6 @@
     height: 40px;
     border-radius: 10px;
     margin: 14px auto;
-    margin-bottom: 70px;
     display: block;
     font-family: "Montserrat", sans-serif;
     font-style: normal;
@@ -362,36 +340,20 @@
 .btn:hover{
     transform: scale(0.9);
 }
-.b1{
-    visibility: hidden;
-    display: block;
-    width: 260px;
-    padding: 10px 0;
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    margin: auto;
-    transition: 0.4s all;
-    border-radius: 10px;
-}
 .file{
     margin: 10px;
 }
-.sel{
-    text-align: center;
-}
 .b2{
-    position: absolute;
     display: block;
     bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
     width: 260px;
     padding: 10px 0;
     text-decoration: none;
     text-align: center;
     transition: 0.4s all;
     color: white;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 10px;
 }
 .b2:hover{

@@ -1,19 +1,14 @@
 <#import "headerMenu.ftl" as menu>
 <#import "item.ftl" as i>
 <@menu.menu signed_in="${auth}" title="Main Page">
-    <div class="main">
+    <div class="list">
     <form action="/main" method="post">
         <#list items as item>
-            <#assign
-                id = item.id
-                name = item.name
-                description = item.description
-                category = item.category
-            >
             <a class="items" href="/ad?id=${item.id}">
-                <@i.item name=name
-                description=description
-                category=category/>
+                <@i.item image="${item.getFile()?if_exists}"
+                name="${item.getName()}"
+                description="${item.getDescription()}"
+                category="${item.getCategory()}"/>
             </a>
         </#list>
     </form>
