@@ -10,7 +10,7 @@
                 <input type="text" placeholder="@description" required value="${description?if_exists}" name="description">
             </div>
             <select class="sel" size="1" required name="timeSlots" value=${timeslot?if_exists}>
-                <option class="opt" selected disabled hidden>Choose timing</option>
+                <option class="opt" value="" selected disabled hidden>Choose timing</option>
                 <option class="opt" value="Per hour" <#if timeslot="Per hour">selected="selected"</#if>>Per Hour</option>
                 <option class="opt" value="Per day" <#if timeslot="Per day">selected="selected"</#if>>Per Day</option>
                 <option class="opt" value="Per week" <#if timeslot="Per week">selected="selected"</#if>>Per Week</option>
@@ -21,7 +21,7 @@
                 <input type="number" placeholder="@Price $" required value="${price?if_exists}" name="price">
             </div>
             <select class="sel" size="1" required name = "category" value="${category?if_exists}">
-                <option class = "opt" selected disabled>Choose category</option>
+                <option class = "opt" value="" selected disabled>Choose category</option>
                 <option class = "opt" value="Transport" <#if category="Transport">selected="selected"</#if>>Transport</option>
                 <option class = "opt" value="Home stuff" <#if category="Home stuff">selected="selected"</#if>>Home Stuff</option>
                 <option class = "opt" value="Electronics" <#if category="Electronics">selected="selected"</#if>>Electronics</option>
