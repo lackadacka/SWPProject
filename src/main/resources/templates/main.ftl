@@ -1,6 +1,9 @@
 <#import "headerMenu.ftl" as menu>
 <#import "item.ftl" as i>
+<#import "search.ftl" as search>
+
 <@menu.menu signed_in="${auth}" title="Main Page">
+    <@search.search></@search.search>
     <div class="list">
     <form action="/main" method="post">
         <#list items as item>

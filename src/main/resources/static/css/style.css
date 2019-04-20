@@ -199,10 +199,10 @@
      width: auto;
      height: 100px;
      background: lightblue;
-     border: #333333;
      border-radius: 10px;
      position: center;
      text-decoration: none;
+     padding: 10px;
      transition: 0.5s;
  }
 .item:hover{
@@ -214,32 +214,27 @@
     max-width: 120px;
     min-width: 80px;
     float: left;
+    margin: 5px 10px 0 0;
 }
 .item text{
     margin: 20px;
+    float: left;
+    text-decoration: none;
 }
 .item .text h2{
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
     color: black;
-    text-decoration: none;
-    text-align: left;
-    margin-left: 20px;
 }
 .item .text h1{
     font-family: "Montserrat", sans-serif;
     font-size: 10px;
     color: black;
-    text-decoration: none;
-    text-align: left;
-    margin-left: 20px;
 }
 .item .text h4{
     font-family: "Montserrat", sans-serif;
     font-size: 15px;
     color: gray;
-    text-decoration: none;
-    margin: 20px;
 }
 .edit_btn{
     width: 130px;
@@ -375,4 +370,17 @@ option{
 }
 .b4:hover{
     background: #3498db;
+}
+.search{
+    width: 600px;
+    height: 50px;
+    margin: 20px auto 20px auto;
+}
+.search select,
+.search .btn,
+.search .tbox{
+    float: left;
+    width: 100px;
+    margin: 10px;
+    height: 30px;
 }
