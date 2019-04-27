@@ -354,6 +354,19 @@ option{
 .b2:hover{
     background: #3498db;
 }
+.b3{
+    text-decoration: none;
+    text-align: left;
+    background: none;
+    color: cornflowerblue;
+    margin: 7px;
+    transition: 0.3s all;
+    float: right;
+    padding-right: 100px;
+}
+.b3:hover{
+    color: #34495e;
+}
 .b4{
     position: absolute;
     display: block;

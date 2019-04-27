@@ -4,6 +4,9 @@
 
 <@menu.menu signed_in="${auth}" title="Main Page">
     <@search.search></@search.search>
+    <#if auth="true">
+        <a class="b3" href="/additem">+ Add new item</a>
+    </#if>
     <div class="list">
     <form action="/main" method="post">
         <#list items as item>
