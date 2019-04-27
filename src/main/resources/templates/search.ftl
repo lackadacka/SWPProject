@@ -16,6 +16,10 @@
             <option class = "opt" value="Office">Office</option>
             <option class = "opt" value="Entertainment">Entertainment</option>
         </select>
+        <div class="check">
+            <input type="checkbox" name="sort" value="sort" id="sort">
+            <label for="sort">Sort by Price</label>
+        </div>
         <div class="tbox">
             <input type="text" placeholder="@Search" name="text">
         </div>

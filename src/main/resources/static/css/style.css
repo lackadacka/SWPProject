@@ -391,9 +391,13 @@ option{
 }
 .search select,
 .search .btn,
-.search .tbox{
+.search .tbox,
+.search .check{
     float: left;
-    width: 140px;
+    width: 112px;
     margin: 3px;
     height: 30px;
+}
+.search .check{
+    padding-top: 7px;
 }
