@@ -16,7 +16,9 @@
                     <@i.item image="${item.getFile()?if_exists}"
                     name="${item.getName()}"
                     description="${item.getDescription()}"
-                    category="${item.getCategory()}"/>
+                    category="${item.getCategory()}"
+                    price="${item.getPrice()}"
+                    timeslot="${item.getTimeSlots()}"/>
                 </a>
             </#list>
         </form>

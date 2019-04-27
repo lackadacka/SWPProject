@@ -18,7 +18,7 @@
     transition: 0.5s;
 }
 .lg:hover{
-    color:gray;
+    color: #3498db;
 }
 .logo{
     line-height: 100px;
@@ -221,7 +221,10 @@
     float: left;
     text-decoration: none;
 }
-.item .text h2{
+.item .text h3{
+    margin-top: 20px;
+}
+.item .text h2, h3{
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
     color: black;

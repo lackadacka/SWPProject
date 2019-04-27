@@ -33,14 +33,14 @@ public class MainController {
         List<ItemProfile> result;
         List<ItemProfile> finalResult = new ArrayList<ItemProfile>();
 
-        if (searchData.getCategory() == null){
-            if (searchData.getTimeSlots() == null)
+        if ((searchData.getCategory() == null)||(searchData.getCategory().equals(""))){
+            if ((searchData.getTimeSlots() == null)||(searchData.getTimeSlots().equals("")))
                 result = itemRepository.findAll();
             else
                 result = itemRepository.findAllByTimeSlots(searchData.getTimeSlots());
         }
         else{
-            if (searchData.getTimeSlots() == null)
+            if ((searchData.getTimeSlots() == null)||(searchData.getTimeSlots().equals("")))
                 result = itemRepository.findAllByCategory(searchData.getCategory());
             else
                 result = itemRepository.findAllByTimeSlotsAndCategory(searchData.getTimeSlots(), searchData.getCategory());

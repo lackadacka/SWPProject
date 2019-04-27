@@ -3,7 +3,10 @@
 <#import "search.ftl" as search>
 
 <@menu.menu signed_in="${auth}" title="Main Page">
-    <@search.search></@search.search>
+    <@search.search category="${searchData.getCategory()?if_exists}"
+    check="${searchData.getSort()?if_exists}"
+    search="${searchData.getText()?if_exists}"
+    timeslot="${searchData.getTimeSlots()?if_exists}"></@search.search>
     <#if auth="true">
         <a class="b3" href="/additem">+ Add new item</a>
     </#if>
@@ -14,7 +17,9 @@
                 <@i.item image="${item.getFile()?if_exists}"
                 name="${item.getName()}"
                 description="${item.getDescription()}"
-                category="${item.getCategory()}"/>
+                category="${item.getCategory()}"
+                price="${item.getPrice()}"
+                timeslot="${item.getTimeSlots()}"/>
             </a>
         </#list>
     </form>
