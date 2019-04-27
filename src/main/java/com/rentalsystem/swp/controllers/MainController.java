@@ -5,6 +5,7 @@ import com.rentalsystem.swp.Repositories.ItemRepository;
 import com.rentalsystem.swp.Repositories.UserRepository;
 import com.rentalsystem.swp.models.ItemProfile;
 import com.rentalsystem.swp.models.UserProfile;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 @Controller
@@ -52,6 +55,19 @@ public class MainController {
             else {
                 if (currentItem.getName().contains(searchData.getText()))
                     finalResult.add(currentItem);
+            }
+        }
+
+        if (searchData.getSort() != null){
+            int n = finalResult.size();
+
+            for (int i = 0; i < n; i++){
+                for (int j = i + 1; j < n; j++){
+                    ItemProfile a = finalResult.get(i), b = finalResult.get(j);
+
+                    if (a.getPrice() > b.getPrice())
+                        Collections.swap(finalResult, i, j);
+                }
             }
         }
 
