@@ -18,7 +18,7 @@
                 <option class="opt" value="Per year" <#if timeslot="Per year">selected="selected"</#if>>Per Year</option>
             </select>
             <div class="tbox">
-                <input type="number" placeholder="@Price $" required value="${price?if_exists}" name="price">
+                <input type="number" min="0" placeholder="@Price $" required value="${price?if_exists}" name="price">
             </div>
             <select class="sel" size="1" required name = "category" value="${category?if_exists}">
                 <option class = "opt" value="" selected disabled>Choose category</option>

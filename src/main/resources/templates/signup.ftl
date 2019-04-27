@@ -17,7 +17,7 @@
                 <input type="password" placeholder="@Password" required value="" name="password">
             </div>
             <div class="tbox">
-                <input type="tel" placeholder="PhoneNumber" required value="" name="phoneNumber">
+                <input type="tel" placeholder="@PhoneNumber +88888888888" pattern="[\+]\d{11}" maxlength="12" required value="" name="phoneNumber">
             </div>
 
 
