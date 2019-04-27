@@ -8,6 +8,6 @@ Run the following command in the directory of the downloaded project
 
 Run project from IDEA with Spring App Configuration
 
-Go to localhost:8080/main in browser
+Go to localhost:8080/ in browser
 ## Authors:
 _Mikhail Moiseev, Denis Pimenov, Danis Begishev, Arthur Ahmetshin, Dmitriy Bochkarev_
