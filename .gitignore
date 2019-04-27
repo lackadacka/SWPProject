@@ -24,7 +24,8 @@ HELP.md
 /nbdist/
 /.nb-gradle/
 /build/
-/src/main/resources/img/**
+/src/main/resources/img/*
+!/src/main/resources/img/.gitkeep
 
 ### VS Code ###
 .vscode/
