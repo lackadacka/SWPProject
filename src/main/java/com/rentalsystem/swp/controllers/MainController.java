@@ -86,6 +86,7 @@ public class MainController {
         model.addAttribute("items", list);
         model.addAttribute("id", id);
         model.addAttribute("auth", Boolean.toString(test != null));
+        model.addAttribute("searchData", searchData);
 
         return "main";
     }
